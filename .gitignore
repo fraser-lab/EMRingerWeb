@@ -1,0 +1,8 @@
+# Ignore the following files:
+tmp/
+private.py
+app.db
+bower_components/
+*.py[cod]
+cctbx/
+flask/
