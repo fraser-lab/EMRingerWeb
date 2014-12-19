@@ -22,6 +22,12 @@ def about():
 	mkd = open('static/markdown/about.md','r').read()
 	return render_template('markdown.html', markdown_content=mkd)
 
+@app.route('/contact')
+def contact():
+	mkd = open('static/markdown/contact.md','r').read()
+	return render_template('markdown.html', markdown_content=mkd)
+
+
 @app.errorhandler(404)
 def page_not_found(e):
 	return render_template('404.html'), 404

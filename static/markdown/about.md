@@ -1,4 +1,7 @@
 # About EMRinger
+------------
+
+## Citing EMRinger
 
 ## The Ringer algorithm, adapted to electron microscopy
 

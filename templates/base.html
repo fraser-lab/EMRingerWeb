@@ -2,6 +2,12 @@
 
 {% block title %}EMRinger{% endblock %}
 
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename = 'favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename = 'favicon.ico') }}" type="image/x-icon">
+{% endblock %}
+
 {% block styles %}
 {{ super() }}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
@@ -24,6 +30,7 @@
             <ul class="nav navbar-nav navbar-right">
                   <li><a href="/" alt="home">home</a></li>
                   <li><a href="/about" alt="about">about</a></li>
+                  <li><a href="/contact" alt="contact">contact</a></li>
                   <li><a href="/">log out</a></li>
               <!-- <li><a href="https://sites.google.com/a/fraserlab.com/ucsf-private/" alt="Lab Private Area">private</a></li> -->
             </ul>
