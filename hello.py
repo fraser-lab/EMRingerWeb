@@ -2,8 +2,14 @@ from flask import Flask, render_template, Markup
 from flask.ext.script import Manager
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.markdown import Markdown
+from flask.ext.wtf import Form
+from wtforms import StringField, FileField, SubmitField
+from wtforms.validators import Required, Email
+import os
+
 
 app = Flask(__name__)
+app.config['SECRET_KEY']=os.environ.get('SECRET_KEY')
 
 manager = Manager(app)
 bootstrap = Bootstrap(app)

@@ -4,5 +4,7 @@ private.py
 app.db
 bower_components/
 *.py[cod]
+cctbx_build/
 cctbx/
+cctbx*
 flask/
