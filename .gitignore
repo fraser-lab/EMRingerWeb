@@ -8,3 +8,4 @@ cctbx_build/
 cctbx/
 cctbx*
 flask/
+data-dev.sqlite

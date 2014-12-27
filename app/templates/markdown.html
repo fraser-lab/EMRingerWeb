@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+{% filter markdown %}
+{% include '/markdown/'+markdown_content %}
+{% endfilter %}
+{% endblock %}
