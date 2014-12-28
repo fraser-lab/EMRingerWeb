@@ -9,8 +9,8 @@ map_type = UploadSet('mapfiles', extensions=('map','ccp4','mrc'))
 
 
 class JobForm(Form):
-	model = FileField('PDB Model', validators=[FileAllowed(pdb_type, "EMRinger doesn't recognize these files. Try using a pdb or ent file"), FileRequired()])
-	map = FileField('CCP4 Map', validators=[FileAllowed(map_type, "EMRinger doesn't recognize this file. Please use a CCP4 formatted map."),FileRequired()])
+	model = FileField('PDB Model', validators=[FileRequired(),FileAllowed(pdb_type, "EMRinger doesn't recognize these files. Try using a pdb or ent file")])
+	map = FileField('CCP4 Map', validators=[FileRequired(),FileAllowed(map_type, "EMRinger doesn't recognize this file. Please use a CCP4 formatted map.")])
 	email = StringField('Email for Results Link', validators=[Optional(), Email()])
 	submit = SubmitField('Send Job')
 
