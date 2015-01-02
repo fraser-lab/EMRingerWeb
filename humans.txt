@@ -1,0 +1,24 @@
+/* TEAM */
+
+	Developer: Benjamin A Barad
+	Contact: benjamin.barad+emringer@gmail.com
+	Twitter: @benjaminbarad
+	Location: San Francisco, CA
+
+	Principal Investigator: James S Fraser
+	Twitter: @fraser_lab
+	Location: San Francisco, CA
+
+/* THANKS */
+
+	Website v0.1 Co-developer: Kevin Hartman
+
+	Ringer/CCTBX programmer: Nathaniel Echols
+
+
+/* SITE */
+	
+	Last Updated: 12/30/2014
+	Standards: HTML5
+	Components: Flask, Computational Crystallography Toolbox (cctbx), Bootstrap, JQuery File Uploader 
+	IDE: Sublime Text
