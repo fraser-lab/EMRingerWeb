@@ -13,6 +13,7 @@ markdown = Markdown(app)
 
 def make_shell_context():
 	return dict(app=app,db=db,Residue=Residue, Angle=Angle)
+
 manager.add_command("shell", Shell(make_context=make_shell_context))
 manager.add_command("db", MigrateCommand)
 
