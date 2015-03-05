@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, Markup
 from flask.ext.script import Manager
 from flask.ext.bootstrap import Bootstrap
