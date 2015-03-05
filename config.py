@@ -9,7 +9,7 @@ class Config:
 	EMRINGER_ADMIN = os.environ.get('EMRINGER_ADMIN')
 	ALLOWED_EXTENSIONS={'MAP':set(['ccp4','map','mrc']),'PDB':set(['pdb','ent'])}
 	IGNORED_FILES = set(['.gitignore'])
-	MEDIA_ROOT = os.path.join(BASE_DIR, 'data')
+	MEDIA_ROOT = os.path.join(basedir, 'data')
 	UPLOAD_DIRECTORY = os.path.join(MEDIA_ROOT, 'upload')
 	CHUNKS_DIRECTORY = os.path.join(MEDIA_ROOT, 'chunks')
 
