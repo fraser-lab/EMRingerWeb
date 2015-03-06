@@ -17,8 +17,8 @@ $(document).ready(function(){
     autoUpload: false,
     showMessage: function(message) {
       // Using Bootstrap's classes
-      $('#modelError').remove()
-      $('#modelUploader').append('<div id="modelError" class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ' + message + '</div>');
+      $('#modelError').empty()
+      $('#modelError').append('<div class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ' + message + '</div>');
     }
   });
 
@@ -36,8 +36,8 @@ $(document).ready(function(){
     autoUpload: false,
     showMessage: function(message) {
       // Using Bootstrap's classes
-      $('#mapError').remove()
-      $('#mapUploader').append('<div id="mapError" class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ' + message + '</div>');
+      $('#mapError').empty()
+      $('#mapError').append('<div class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ' + message + '</div>');
     }
   });
 
@@ -46,4 +46,13 @@ $(document).ready(function(){
     modelUploader.fineUploader('uploadStoredFiles');
     mapUploader.fineUploader('uploadStoredFiles');
   });
+
+  $('#modelUploader').click(function() {
+    $('#modelError').empty();
+  });
+
+  $('#mapUploader').click(function() {
+    $('#mapError').empty();
+  });
+
 });
