@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 
-{% block page_content %}
-
-<h1> Welcome to the webserver for EMRinger <br><small>Under development by the Fraser Lab at UCSF</small> </h1>
-
+{% block scripts %}
+{{super()}}
 <!-- jQuery
 ====================================================================== -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -11,9 +9,11 @@
 <!-- Fine Uploader JS
 ====================================================================== -->
 <script src="{{ url_for('static', filename='fine-uploader/jquery.fine-uploader.js') }}"></script>
+
 <script>
-  $(document).ready(function() {
-    $('#fine-uploader').fineUploader({
+  $(document).ready(function(){
+    console.log("hello?");
+    var uploader = $('#map-uploader').fineUploader({
       request: {
         endpoint: 'server/success.html'
       },
@@ -22,21 +22,35 @@
         allowedExtensions: ['jpeg', 'jpg', 'txt'],
         sizeLimit: 123289600 // 100 MB = 100 * 1024 * 1024 bytes
       },
+      autoUpload: false,
+      extraButtons: [
+        {
+            element: $("#model-uploader"),
+            validation: {
+                allowedExtensions: ["txt"]
+            }
+        }
+      ],
       showMessage: function(message) {
         // Using Bootstrap's classes
-        $('#restricted-fine-uploader').append('<div class="alert alert-error">' + message + '</div>');
+        $('#fine-uploader').append('<div class="alert alert-error">' + message + '</div>');
       }
+    });
+
+    $('#triggerUpload').click(function() {
+      uploader.fineUploader('uploadStoredFiles');
     });
   });
 </script>
+{% endblock %}
+
+{% block page_content %}
+
+<h1> Welcome to the webserver for EMRinger <br><small>Under development by the Fraser Lab at UCSF</small> </h1>
 
 <!-- Fine Uploader CSS
 ====================================================================== -->
 <link href="{{ url_for('static', filename='fine-uploader/fine-uploader.css') }}" rel="stylesheet">
-
-<!-- Fine Uploader DOM Element
-====================================================================== -->
-<div id="fine-uploader"></div>
 
 <!-- Fine Uploader template
 ====================================================================== -->
@@ -46,7 +60,7 @@
       <span>Drop files here to upload</span>
     </div>
     <div class="qq-upload-button-selector qq-upload-button">
-      <div>Upload a file</div>
+      <div>Select a Map</div>
     </div>
     <span class="qq-drop-processing-selector qq-drop-processing">
       <span>Processing dropped files...</span>
@@ -70,5 +84,15 @@
     </ul>
   </div>
 </script>
+
+<!-- Fine Uploader DOM Element
+====================================================================== -->
+<div id="model-uploader" class="qq-upload-button-selector qq-upload-button" style="margin-top: 10px;">Select Model</div>
+<div id="map-uploader"></div>
+<div id="triggerUpload" class="btn btn-primary" style="margin-top: 10px;">Submit Job (Requires Both)</div>
+
+
+
+
 
 {% endblock %}
