@@ -68,25 +68,26 @@ def handle_upload(f, attrs):
     chunked = False
     dest_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], attrs['qquuid'])
     dest = os.path.join(dest_folder, attrs['qqfilename'])
+    print "made destination"
 
-
-    # Chunked
-    if attrs.has_key('qqtotalparts') and int(attrs['qqtotalparts']) > 1:
-        chunked = True
-        dest_folder = os.path.join(current_app.config['CHUNKS_DIRECTORY'], attrs['qquuid'])
-        dest = os.path.join(dest_folder, attrs['qqfilename'], str(attrs['qqpartindex']))
+    # # Chunked
+    # if attrs.has_key('qqtotalparts') and int(attrs['qqtotalparts']) > 1:
+    #     chunked = True
+    #     dest_folder = os.path.join(current_app.config['CHUNKS_DIRECTORY'], attrs['qquuid'])
+    #     dest = os.path.join(dest_folder, attrs['qqfilename'], str(attrs['qqpartindex']))
 
     save_upload(f, dest)
+    print "saved upload"
 
-    if chunked and (int(attrs['qqtotalparts']) - 1 == int(attrs['qqpartindex'])):
+    # if chunked and (int(attrs['qqtotalparts']) - 1 == int(attrs['qqpartindex'])):
 
-        combine_chunks(attrs['qqtotalparts'],
-            attrs['qqtotalfilesize'],
-            source_folder=os.path.dirname(dest),
-            dest=os.path.join(current_app.config['UPLOAD_DIRECTORY'], attrs['qquuid'],
-                attrs['qqfilename']))
+    #     combine_chunks(attrs['qqtotalparts'],
+    #         attrs['qqtotalfilesize'],
+    #         source_folder=os.path.dirname(dest),
+    #         dest=os.path.join(current_app.config['UPLOAD_DIRECTORY'], attrs['qquuid'],
+    #             attrs['qqfilename']))
 
-        shutil.rmtree(os.path.dirname(os.path.dirname(dest)))
+    #     shutil.rmtree(os.path.dirname(os.path.dirname(dest)))
 
 
 def save_upload(f, path):
@@ -95,8 +96,11 @@ def save_upload(f, path):
     """
     if not os.path.exists(os.path.dirname(path)):
         os.makedirs(os.path.dirname(path))
+    # f.save(path)
     with open(path, 'wb+') as destination:
+        print "path open"
         destination.write(f.read())
+        print "path written"
 
 
 def combine_chunks(total_parts, total_size, source_folder, dest):
@@ -138,6 +142,7 @@ class UploadAPI(MethodView):
         based ont the POSTed data. Does not handle extra parameters yet.
         """
         if validate(request.form):
+            print request.files['qqfile']
             handle_upload(request.files['qqfile'], request.form)
             return make_response(200, { "success": True })
         else:

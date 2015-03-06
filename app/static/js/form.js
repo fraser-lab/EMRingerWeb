@@ -4,6 +4,7 @@ $(document).ready(function(){
     request: {
       endpoint: 'server/success.html'
     },
+    chunked: false,
     template: 'qq-template-model',
     classes: {
       success: 'alert alert-success',
@@ -14,7 +15,7 @@ $(document).ready(function(){
       allowedExtensions: ['pdb','ent'],
       sizeLimit: 20000000 // 20 MB = 100 * 1024 * 1024 bytes
     },
-    autoUpload: false,
+    // autoUpload: true,
     showMessage: function(message) {
       // Using Bootstrap's classes
       $('#modelError').empty()
