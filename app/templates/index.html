@@ -2,6 +2,7 @@
 
 {% block scripts %}
 {{super()}}
+
 <!-- jQuery
 ====================================================================== -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -10,89 +11,110 @@
 ====================================================================== -->
 <script src="{{ url_for('static', filename='fine-uploader/jquery.fine-uploader.js') }}"></script>
 
-<script>
-  $(document).ready(function(){
-    console.log("hello?");
-    var uploader = $('#map-uploader').fineUploader({
-      request: {
-        endpoint: 'server/success.html'
-      },
-      multiple: false,
-      validation: {
-        allowedExtensions: ['jpeg', 'jpg', 'txt'],
-        sizeLimit: 123289600 // 100 MB = 100 * 1024 * 1024 bytes
-      },
-      autoUpload: false,
-      extraButtons: [
-        {
-            element: $("#model-uploader"),
-            validation: {
-                allowedExtensions: ["txt"]
-            }
-        }
-      ],
-      showMessage: function(message) {
-        // Using Bootstrap's classes
-        $('#fine-uploader').append('<div class="alert alert-error">' + message + '</div>');
-      }
-    });
-
-    $('#triggerUpload').click(function() {
-      uploader.fineUploader('uploadStoredFiles');
-    });
-  });
-</script>
-{% endblock %}
-
-{% block page_content %}
-
-<h1> Welcome to the webserver for EMRinger <br><small>Under development by the Fraser Lab at UCSF</small> </h1>
-
-<!-- Fine Uploader CSS
+<!-- Fine Uploader Form JS 
 ====================================================================== -->
-<link href="{{ url_for('static', filename='fine-uploader/fine-uploader.css') }}" rel="stylesheet">
+<script src="{{ url_for('static', filename='js/form.js') }}"></script>
 
 <!-- Fine Uploader template
 ====================================================================== -->
-<script type="text/template" id="qq-template">
-  <div class="qq-uploader-selector qq-uploader">
-    <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
-      <span>Drop files here to upload</span>
+
+<script type="text/template" id="qq-template-model">
+  <div class="qq-uploader-selector qq-uploader span12">
+    <div class="qq-upload-drop-area-selector qq-upload-drop-area span12" qq-hide-dropzone>
+      <span>Drop pdb files here to upload</span>
     </div>
-    <div class="qq-upload-button-selector qq-upload-button">
-      <div>Select a Map</div>
+    <div class="btn btn-primary qq-upload-button-selector upload-button " style="width: 100%;">
+      <div><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Select a pdb model to upload </div>
     </div>
     <span class="qq-drop-processing-selector qq-drop-processing">
       <span>Processing dropped files...</span>
       <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
     </span>
-    <ul class="qq-upload-list-selector qq-upload-list">
+    <ul class="qq-upload-list-selector qq-upload-list" style="margin-top: 10px; margin-bottom: 10px; text-align: center;">
       <li>
-        <div class="qq-progress-bar-container-selector">
+        <div class="qq-progress-bar-container-selector"> 
           <div class="qq-progress-bar-selector qq-progress-bar"></div>
         </div>
         <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
-        <span class="qq-edit-filename-icon-selector qq-edit-filename-icon"></span>
         <span class="qq-upload-file-selector qq-upload-file"></span>
-        <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
         <span class="qq-upload-size-selector qq-upload-size"></span>
         <a class="qq-upload-cancel-selector qq-upload-cancel" href="#">Cancel</a>
-        <a class="qq-upload-retry-selector qq-upload-retry" href="#">Retry</a>
-        <a class="qq-upload-delete-selector qq-upload-delete" href="#">Delete</a>
         <span class="qq-upload-status-text-selector qq-upload-status-text"></span>
+        <br/>
       </li>
     </ul>
   </div>
 </script>
 
+<script type="text/template" id="qq-template-map">
+  <div class="qq-uploader-selector qq-uploader span12">
+    <div class="qq-upload-drop-area-selector qq-upload-drop-area span12" qq-hide-dropzone>
+      <span>Drop map files here to upload</span>
+    </div>
+    <div class="qq-upload-button-selector upload-button btn btn-primary" style="width: 100%;">
+      <div><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Select a map file to upload </div>
+    </div>
+    <span class="qq-drop-processing-selector qq-drop-processing">
+      <span>Processing dropped files...</span>
+      <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+    </span>
+    <ul class="qq-upload-list-selector qq-upload-list" style="margin-top: 10px; text-align: center;">
+      <li>
+        <div class="qq-progress-bar-container-selector">
+          <div class="qq-progress-bar-selector qq-progress-bar"></div>
+        </div>
+        <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+        <span class="qq-upload-file-selector qq-upload-file"></span>
+        <span class="qq-upload-size-selector qq-upload-size"></span>
+        <a class="qq-upload-cancel-selector qq-upload-cancel" href="#">Cancel</a>
+        <span class="qq-upload-status-text-selector qq-upload-status-text"></span>
+        <br>
+      </li>
+    </ul>
+  </div>
+</script>
+
+{% endblock %}
+
+{% block page_content %}
+
+<h1> Welcome to the webserver for EMRinger <br><small>Under development by the Fraser Lab at UCSF</small> </h1>
+ 
+<hr>
 <!-- Fine Uploader DOM Element
 ====================================================================== -->
-<div id="model-uploader" class="qq-upload-button-selector qq-upload-button" style="margin-top: 10px;">Select Model</div>
-<div id="map-uploader"></div>
-<div id="triggerUpload" class="btn btn-primary" style="margin-top: 10px;">Submit Job (Requires Both)</div>
 
+<div class="form-group">
+<div id="modelUploader">Select Model</div>
+<div id="mapUploader"></div>
+<form action="server/uploads.php" id="qq-form">
+    <label>Enter your email to come back to your results later (or share them): </label>
+    <input type="email" name="user_email" class="form-control" required>
+</form>
 
+<div id="triggerUpload" class="btn btn-primary form-control" style="margin-top: 10px;"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Submit Job (Enter email first if you want results later!)</div>
+</div>
 
+{% endblock %}
 
+{% block styles %}
+{{ super() }}
+<!-- Fine Uploader CSS
+====================================================================== -->
+<link href="{{ url_for('static', filename='fine-uploader/fine-uploader.css') }}" rel="stylesheet">
 
+  <style>
+    /* For the bootstrapped demos */
+    li.alert-success {
+        background-color: #DFF0D8;
+    }
+
+    li.alert-error {
+        background-color: #F2DEDE;
+    }
+
+    .alert-error .qq-upload-failed-text {
+        display: inline;
+    }
+  </style>
 {% endblock %}
