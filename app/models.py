@@ -7,7 +7,9 @@ class Job(db.Model):
 	datetime = db.Column(db.DateTime)
 	email = db.Column(db.String, nullable=True, index = True)
 	map = db.Column(db.String)
+	mapfilename = db.Column(db.String, unique=True)
 	model = db.Column(db.String)
+	modelfilename = db.Column(db.String, unique=True)
 	success = db.Column(db.Boolean)
 	residues = db.relationship('Residue', backref="job")
 
