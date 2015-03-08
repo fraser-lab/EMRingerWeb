@@ -143,7 +143,7 @@ class UploadAPI(MethodView):
         if validate(request.form):
             print request.files['qqfile']
             handle_upload(request.files['qqfile'], request.form)
-            return make_response(200, { "success": True })
+            return make_response(200, { "success": True, "form": request.form})
         else:
             return make_response(400, { "error", "Invalid request" })
 

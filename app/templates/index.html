@@ -7,6 +7,10 @@
 ====================================================================== -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
+<!-- Lodash
+====================================================================== -->
+<script src="//raw.github.com/lodash/lodash/3.4.0/lodash.min.js"></script>
+
 <!-- Fine Uploader JS
 ====================================================================== -->
 <script src="{{ url_for('static', filename='fine-uploader/jquery.fine-uploader.js') }}"></script>
@@ -21,7 +25,7 @@
 <script type="text/template" id="qq-template-model">
   <div class="qq-uploader-selector qq-uploader span12">
     <div class="qq-upload-drop-area-selector qq-upload-drop-area span12" qq-hide-dropzone>
-      <span>Drop pdb files here to upload</span>
+      <span>Drop pdb files here!</span>
     </div>
     <div class="btn btn-primary qq-upload-button-selector upload-button " style="width: 100%;">
       <div><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Select a pdb model to upload </div>
@@ -49,7 +53,7 @@
 <script type="text/template" id="qq-template-map">
   <div class="qq-uploader-selector qq-uploader span12">
     <div class="qq-upload-drop-area-selector qq-upload-drop-area span12" qq-hide-dropzone>
-      <span>Drop map files here to upload</span>
+      <span>Drop map files here!</span>
     </div>
     <div class="qq-upload-button-selector upload-button btn btn-primary" style="width: 100%;">
       <div><span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Select a map file to upload </div>
@@ -86,15 +90,11 @@
 
 <div class="form-group">
 <div id="modelUploader">Select Model</div>
-<div id="modelError"></div>
+<div id="modelUploaderError"></div>
 <div id="mapUploader"></div>
-<div id="mapError"></div>
-<form action="/upload" id="qq-form">
-    <label>Enter your email to come back to your results later (or share them): </label>
-    <input type="email" name="user_email" class="form-control" required>
-</form>
+<div id="mapUploaderError"></div>
 
-<div id="triggerUpload" class="btn btn-primary form-control" style="margin-top: 10px;"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Submit Job (Enter email first if you want results later!)</div>
+<div id="triggerUpload" class="btn btn-primary form-control" style="margin-top: 10px;"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>Submit Job</div>
 </div>
 
 {% endblock %}

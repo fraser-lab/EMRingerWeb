@@ -1,59 +1,99 @@
+var state; 
+
+function initialize() {
+
+  state = {
+    uploaders: {}
+  }
+
+  // disable the submit button
+  disableButton($("#triggerUpload"))
+
+  // initialize the uploaders
+  var $modelUploader = initializeUploader('#modelUploader', ['pdb','ent'], 20000000, 'qq-template-model')
+  var $mapUploader = initializeUploader('#mapUploader', ['map','mrc','ccp4'], 100000000, 'qq-template-map')
+
+  $('#triggerUpload').click(function() {
+    $modelUploader.fineUploader('uploadStoredFiles');
+    $mapUploader.fineUploader('uploadStoredFiles');
+  });
+
+}
+
 $(document).ready(function(){
-  console.log("Model Uploader Test");
-  var modelUploader = $('#modelUploader').fineUploader({
+  initialize()
+});
+
+
+
+function initializeUploader(div, allowedExtensions, sizeLimit, template) {
+  $(div).click(function() {
+    $(div+'Error').empty()
+  })
+  state.uploaders[div] = {}
+  return $(div).fineUploader({
     request: {
-      endpoint: 'server/success.html'
+      endpoint: '/upload'
     },
-    chunked: false,
-    template: 'qq-template-model',
+    chunked:true,
+    template: template,
     classes: {
       success: 'alert alert-success',
       fail: 'alert alert-error'
     },
     multiple: false,
     validation: {
-      allowedExtensions: ['pdb','ent'],
-      sizeLimit: 20000000 // 20 MB = 100 * 1024 * 1024 bytes
-    },
-    // autoUpload: true,
-    showMessage: function(message) {
-      // Using Bootstrap's classes
-      $('#modelError').empty()
-      $('#modelError').append('<div class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ' + message + '</div>');
-    }
-  });
-
-  console.log("Map Uploader Test");
-  var mapUploader = $('#mapUploader').fineUploader({
-    request: {
-      endpoint: 'server/success.html'
-    },
-    template: 'qq-template-map',
-    multiple: false,
-    validation: {
-      allowedExtensions: ['map','mrc','ccp4'],
-      sizeLimit: 100000000 // 100 MB = 100 * 1024 * 1024 bytes
+      allowedExtensions: allowedExtensions,
+      sizeLimit: sizeLimit // 20 MB = 100 * 1024 * 1024 bytes
     },
     autoUpload: false,
     showMessage: function(message) {
       // Using Bootstrap's classes
-      $('#mapError').empty()
-      $('#mapError').append('<div class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ' + message + '</div>');
+      $(div+'Error').empty()
+      $(div+'Error').append('<div class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ' + message + '</div>');
     }
-  });
+  }).on('statusChange', function(_,_,_,status) {
+    state.uploaders[div].status = status
+    if (readyToUpload()) enableButton($("#triggerUpload"))
+  }).on('complete', function(_,name,res,xhr) {
+    state.uploaders[div].status = 'upload successful' 
+    state.uploaders[div].uuid = xhr.form.qquuid
+    console.log(state.uploaders)
+    if (uploadsCompleted()) {
+      console.log(getJobRequestJson())
+      // post the job request to the server
+      $.post({
+        type:'POST'
+        , url: '/start_job'
+        , dataType: 'json'
+        , data: getJobRequestJson() // {map: uuid, model: uuid}
+        , success: function() {
+          console.log('server took the job!')
+        }
 
-  console.log("Map Uploader Test");
-  $('#triggerUpload').click(function() {
-    modelUploader.fineUploader('uploadStoredFiles');
-    mapUploader.fineUploader('uploadStoredFiles');
-  });
+      })
+    }
+  })
+}
 
-  $('#modelUploader').click(function() {
-    $('#modelError').empty();
-  });
+function getJobRequestJson() {
+  return { 'model': state.uploaders['#modelUploader'].uuid
+        , 'map': state.uploaders['#mapUploader'].uuid
+      }
+}
 
-  $('#mapUploader').click(function() {
-    $('#mapError').empty();
-  });
+function readyToUpload() { return checkStatusOfUploaders('submitted')}
 
-});
+function uploadsCompleted() { return checkStatusOfUploaders('upload successful')}
+
+function checkStatusOfUploaders(status) {
+  if (_.filter(state.uploaders, function(uploader) {
+    if (uploader.status === status) return uploader 
+  }).length == 2) { return true }
+  return false
+}
+
+
+function disableButton($div) {$div.addClass('disabled'); }
+function enableButton($div) {$div.removeClass('disabled'); }
+
