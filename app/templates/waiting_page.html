@@ -1,0 +1,25 @@
+
+<h1>{{ job_id }}</h1>
+<p>this will be a pong game irl</p>
+
+<script>
+
+(function() {
+	window.setInterval(checkIfJobDone, 500);
+})()
+
+function checkIfJobDone() {
+	console.log('checking w server')
+	 $.ajax({
+        type:'POST'
+        , url: '/check_job'
+        , dataType: 'json'
+        , contentType: "application/json"
+        , data: JSON.stringify({ job_id: {{ job_id }} }) // {map: uuid, model: uuid}
+        , success: function(data) {
+        	console.log(data)
+       	} 
+	})
+}
+
+</script>

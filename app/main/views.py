@@ -8,6 +8,31 @@ from werkzeug import secure_filename
 import os
 import json
 
+# Asynch Calling
+##################
+import threading
+import subprocess
+
+def popenAndCall(onExit, popenArgs):
+    """
+    Runs the given args in a subprocess.Popen, and then calls the function
+    onExit when the subprocess completes.
+    onExit is a callable object, and popenArgs is a list/tuple of args that 
+    would give to subprocess.Popen.
+    """
+    def runInThread(onExit, popenArgs):
+        proc = subprocess.Popen(*popenArgs)
+        proc.wait()
+        onExit()
+        return
+    thread = threading.Thread(target=runInThread, args=(onExit, popenArgs))
+    thread.start()
+    # returns immediately after the thread starts
+    return thread
+
+
+#################
+
 def allowed_file(filename, type):
     return '.' in filename and \
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS[type]
@@ -121,6 +146,8 @@ def combine_chunks(total_parts, total_size, source_folder, dest):
 
 
 
+
+
 @main.route('/')
 # """The homepage for the app"""
 def index():
@@ -129,6 +156,16 @@ def index():
 	# 	return redirect(url_for('index'))
 	return render_template('index.html')#, form=form)
 
+
+@main.route('/start_job', methods=['POST',])
+def run_emringer():
+    print request.get_json()[u'map']
+    return make_response(200, {'waiting_page': render_template('waiting_page.html', job_id=254)})
+
+@main.route('/check_job', methods=['POST',])
+def check_job():
+    print request.get_json()[u'job_id']
+    return make_response(200, {'status': False})
 
 class UploadAPI(MethodView):
     """ View which will handle all upload requests sent by Fine Uploader.

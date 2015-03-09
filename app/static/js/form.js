@@ -14,6 +14,7 @@ function initialize() {
   var $mapUploader = initializeUploader('#mapUploader', ['map','mrc','ccp4'], 100000000, 'qq-template-map')
 
   $('#triggerUpload').click(function() {
+    disableButton($("#triggerUpload"))
     $modelUploader.fineUploader('uploadStoredFiles');
     $mapUploader.fineUploader('uploadStoredFiles');
   });
@@ -55,6 +56,7 @@ function initializeUploader(div, allowedExtensions, sizeLimit, template) {
   }).on('statusChange', function(_,_,_,status) {
     state.uploaders[div].status = status
     if (readyToUpload()) enableButton($("#triggerUpload"))
+    else disableButton($('#triggerUpload'))
   }).on('complete', function(_,name,res,xhr) {
     state.uploaders[div].status = 'upload successful' 
     state.uploaders[div].uuid = xhr.form.qquuid
@@ -62,24 +64,34 @@ function initializeUploader(div, allowedExtensions, sizeLimit, template) {
     if (uploadsCompleted()) {
       console.log(getJobRequestJson())
       // post the job request to the server
-      $.post({
-        type:'POST'
-        , url: '/start_job'
-        , dataType: 'json'
-        , data: getJobRequestJson() // {map: uuid, model: uuid}
-        , success: function() {
-          console.log('server took the job!')
-        }
-
-      })
+      $.ajax(postData())
     }
   })
 }
 
-function getJobRequestJson() {
-  return { 'model': state.uploaders['#modelUploader'].uuid
-        , 'map': state.uploaders['#mapUploader'].uuid
+function postData() {
+  return {
+        type:'POST'
+        , url: '/start_job'
+        , dataType: 'json'
+        , contentType: "application/json"
+        , data: getJobRequestJson() // {map: uuid, model: uuid}
+        , success: function(data) {
+          console.log(data)
+          $('#container').html(data.waiting_page)
+        }
+        , error: function() {
+          enableButton($("#triggerUpload"))
+          console.log('sad times! :(')
+        }
+
       }
+}
+
+function getJobRequestJson() {
+  return JSON.stringify({ 'model': state.uploaders['#modelUploader'].uuid
+        , 'map': state.uploaders['#mapUploader'].uuid
+      })
 }
 
 function readyToUpload() { return checkStatusOfUploaders('submitted')}

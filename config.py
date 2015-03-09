@@ -12,6 +12,8 @@ class Config:
 	MEDIA_ROOT = os.path.join(basedir, 'data')
 	UPLOAD_DIRECTORY = os.path.join(MEDIA_ROOT, 'upload')
 	CHUNKS_DIRECTORY = os.path.join(MEDIA_ROOT, 'chunks')
+	CELERY_BROKER_URL = 'redis://localhost:6379/0'
+	CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 	@staticmethod
 	def init_app(app):
