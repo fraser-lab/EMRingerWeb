@@ -8,27 +8,7 @@ from werkzeug import secure_filename
 import os
 import json
 
-# Asynch Calling
-##################
-import threading
-import subprocess
 
-def popenAndCall(onExit, popenArgs):
-    """
-    Runs the given args in a subprocess.Popen, and then calls the function
-    onExit when the subprocess completes.
-    onExit is a callable object, and popenArgs is a list/tuple of args that 
-    would give to subprocess.Popen.
-    """
-    def runInThread(onExit, popenArgs):
-        proc = subprocess.Popen(*popenArgs)
-        proc.wait()
-        onExit()
-        return
-    thread = threading.Thread(target=runInThread, args=(onExit, popenArgs))
-    thread.start()
-    # returns immediately after the thread starts
-    return thread
 
 
 #################
@@ -81,7 +61,7 @@ def validate(attrs):
 
 def handle_delete(uuid):
     """ Handles a filesystem delete based on UUID."""
-    location = os.path.join(current_app.config['UPLOAD_DIRECTORY'], uuid)
+    location = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(uuid))
     print(uuid)
     print(location)
     shutil.rmtree(location)
@@ -91,15 +71,15 @@ def handle_upload(f, attrs):
     """
 
     chunked = False
-    dest_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], attrs['qquuid'])
-    dest = os.path.join(dest_folder, attrs['qqfilename'])
+    dest_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(attrs['qquuid'])
+    dest = os.path.join(dest_folder, secure_filename(attrs['qqfilename']))
     print "made destination"
 
     # Chunked
     if attrs.has_key('qqtotalparts') and int(attrs['qqtotalparts']) > 1:
         chunked = True
-        dest_folder = os.path.join(current_app.config['CHUNKS_DIRECTORY'], attrs['qquuid'])
-        dest = os.path.join(dest_folder, attrs['qqfilename'], str(attrs['qqpartindex']))
+        dest_folder = os.path.join(current_app.config['CHUNKS_DIRECTORY'], secure_filename(attrs['qquuid']))
+        dest = os.path.join(dest_folder, attrs['qqfilename'], secure_filename(str(attrs['qqpartindex'])))
 
     save_upload(f, dest)
     print "saved upload"
