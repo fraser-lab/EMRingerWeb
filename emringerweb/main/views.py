@@ -1,12 +1,16 @@
-from . import main
+from datetime import datetime
+from os.path import abspath
+import json
+import os
+
 from flask import render_template, session, redirect, request, url_for, current_app 
 from flask.views import MethodView
-from datetime import datetime
-from .. import db
-from ..models import Job, Residue, Angle
 from werkzeug import secure_filename
-import os
-import json
+
+from emringerweb import db
+from emringerweb.main import main_blueprint
+from emringerweb.models import Job, Residue, Angle
+from emringerweb.tasks import run_emringer
 
 
 
@@ -24,7 +28,7 @@ def gen_file_name(filename):
     """
 
     i = 1
-    while os.path.exists(os.path.join(main.config['UPLOAD_DIRECTORY'], filename)):
+    while os.path.exists(os.path.join(main_blueprint.config['UPLOAD_DIRECTORY'], filename)):
         name, extension = os.path.splitext(filename)
         filename = '%s_%s%s' % (name, str(i), extension)
         i = i + 1
@@ -71,7 +75,7 @@ def handle_upload(f, attrs):
     """
 
     chunked = False
-    dest_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(attrs['qquuid'])
+    dest_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(attrs['qquuid']))
     dest = os.path.join(dest_folder, secure_filename(attrs['qqfilename']))
     print "made destination"
 
@@ -89,8 +93,8 @@ def handle_upload(f, attrs):
         combine_chunks(attrs['qqtotalparts'],
             attrs['qqtotalfilesize'],
             source_folder=os.path.dirname(dest),
-            dest=os.path.join(current_app.config['UPLOAD_DIRECTORY'], attrs['qquuid'],
-                attrs['qqfilename']))
+            dest=os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(attrs['qquuid']),
+                secure_filename(attrs['qqfilename'])))
 
         shutil.rmtree(os.path.dirname(os.path.dirname(dest)))
 
@@ -128,7 +132,7 @@ def combine_chunks(total_parts, total_size, source_folder, dest):
 
 
 
-@main.route('/')
+@main_blueprint.route('/')
 # """The homepage for the app"""
 def index():
 	# form = JobForm()
@@ -137,12 +141,25 @@ def index():
 	return render_template('index.html')#, form=form)
 
 
-@main.route('/start_job', methods=['POST',])
-def run_emringer():
-    print request.get_json()[u'map']
-    return make_response(200, {'waiting_page': render_template('waiting_page.html', job_id=254)})
+@main_blueprint.route('/start_job', methods=['POST',])
+def start_job():
+    uuids = request.get_json()
+    
+    map_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(uuids[u'map']))
+    map_file = os.listdir(map_folder)
+    assert length(map_file) == 1
+    map_filename = os.path.join(map_folder, map_file[0])
 
-@main.route('/check_job', methods=['POST',])
+    model_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(uuids[u'model']))
+    model_file = os.listdir(model_folder)
+    assert length(model_file) == 1
+    model_filename = os.path.join(model_folder, model_file[0])
+
+    task = run_emringer.apply_async(args=[model_filename, map_filename])
+
+    return make_response(200, {'waiting_page': render_template('waiting_page.html', job_id=task.id)})
+
+@main_blueprint.route('/check_job', methods=['POST',])
 def check_job():
     print request.get_json()[u'job_id']
     return make_response(200, {'status': False})
@@ -175,5 +192,5 @@ class UploadAPI(MethodView):
             return make_response(400, { "success": False, "error": e.message })
 
 upload_view = UploadAPI.as_view('upload_view')
-main.add_url_rule('/upload', view_func=upload_view, methods=['POST',])
-main.add_url_rule('/upload/<uuid>', view_func=upload_view, methods=['DELETE',])
+main_blueprint.add_url_rule('/upload', view_func=upload_view, methods=['POST',])
+main_blueprint.add_url_rule('/upload/<uuid>', view_func=upload_view, methods=['DELETE',])

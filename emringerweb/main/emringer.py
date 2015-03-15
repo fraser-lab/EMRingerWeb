@@ -220,6 +220,7 @@ class iterate_over_residues (object) :
     self.residue_groups = []
     for chain in models[0].chains() :
       self.residue_groups.extend(chain.residue_groups())
+    self.error_count = 0
     if (params.nproc in [None,Auto]) or (params.nproc > 1) :
       # this will be a list of lists
       results_ = easy_mp.pool_map(
@@ -231,8 +232,13 @@ class iterate_over_residues (object) :
       for result_list in results_ : self.results.extend(result_list)
     else :
       self.results = []
+      self.error_count = 0
       for i_res in range(len(self.residue_groups)) :
         self.results.extend(self.sample_density(i_res, verbose=False))
+    # print '"Residues with Errors": %d,' % self.error_count
+
+  def get_results(self):
+    return self.results, self.error_count
 
   def sample_density (self, i_res, verbose=False) :
     import iotbx.pdb
@@ -256,9 +262,10 @@ class iterate_over_residues (object) :
           n_chi=n_chi)
         if (verbose) :
           print >> self.log, "  %s:" % residue.id_str()
-        for i in range(1, n_chi+1) :
+        if n_chi>0:
           try :
-            atoms = self.angle_lookup.extract_chi_atoms("chi%d" % i, residue)
+            i = 1
+            atoms = self.angle_lookup.extract_chi_atoms("chi1", residue)
           except AttributeError :
             print >> "AttributeError"
             pass
@@ -291,7 +298,7 @@ class iterate_over_residues (object) :
                 sampling=self.params.sampling_angle)
             # This is a pretty bad way to deal with it but I don't want to stop 
             # the whole program because of a problem such as a missing atom...
-            except: print "Problem with ringing"
+            except: self.error_count += 1 # print "Problem with ringing"
         results.append(res_out)
     return results
 
@@ -358,12 +365,12 @@ def run (args, out=None, verbose=True) :
   ccp4_map = ccp4_map_in.file_object
   # make_header("Iterating over residues", out=out)
   # t1 = time.time()
-  results = iterate_over_residues(
+  results, error_count = iterate_over_residues(
     pdb_hierarchy=hierarchy,
     map_coeffs=map_coeffs,
     ccp4_map=ccp4_map,
     params=params,
-    log=out).results
+    log=out).get_results()
   # t2 = time.time()
   # if (verbose) :
   #   print >> out, "Time excluding I/O: %8.1fs" % (t2 - t1)
@@ -382,10 +389,10 @@ def run (args, out=None, verbose=True) :
   # Automated electron-density sampling reveals widespread conformational
   # polymorphism in proteins. Protein Sci. 2010 Jul;19(7):1420-31. PubMed PMID:
   # 20499387"""
-  if (params.show_gui) :
-    run_app(results)
-  else :
-    return results
+  # if (params.show_gui) :
+  #   run_app(results)
+  # else :
+  return results, error_count
 
 def validate_params (params) :
   if (params.pdb_file is None) :
