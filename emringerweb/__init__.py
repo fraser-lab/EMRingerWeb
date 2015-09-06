@@ -1,12 +1,7 @@
-# from celery import Celery
-# from flask import Flask, render_template
-# from flask.ext.bootstrap import Bootstrap
-# from flask.ext.mail import Mail
-# from flask.ext.moment import Moment
 
-# from emringerweb.config import config
-# from emringerweb.db import db
-# from emringerweb.main import main_blueprint
+from emringerweb.config import config
+from emringerweb.db import db
+from emringerweb.main import main_blueprint
 
 
 # def hello_world():
@@ -46,3 +41,4 @@
 
 #     celery.Task = ContextTask
 #     return celery
+

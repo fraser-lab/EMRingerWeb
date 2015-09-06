@@ -5,19 +5,23 @@
 <script>
 
 (function() {
-	window.setInterval(checkIfJobDone, 500);
+	window.setInterval(checkIfJobDone, 5000);
 })()
 
 function checkIfJobDone() {
 	console.log('checking w server')
 	 $.ajax({
         type:'POST'
-        , url: '/check_job'
+        , url: '/check_status'
         , dataType: 'json'
         , contentType: "application/json"
-        , data: JSON.stringify({ job_id: {{ job_id }} }) // {map: uuid, model: uuid}
+        , data: JSON.stringify({ job_id: "{{ job_id }}" }) // {map: uuid, model: uuid}
         , success: function(data) {
         	console.log(data)
+            if (data.redirect) {
+                // data.redirect contains the string URL to redirect to
+                window.location.href = data.redirect;
+            }
        	} 
 	})
 }

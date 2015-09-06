@@ -9,3 +9,8 @@ cctbx/
 cctbx*
 flask/
 data-dev.sqlite
+
+test_model.pdb
+test_map.ccp4
+
+data/

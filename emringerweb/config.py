@@ -3,7 +3,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
 	SECRET_KEY = os.environ.get('SECRET_KEY')
-	SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 	EMRINGER_MAIL_SUBJECT_PREFIX = '[EMRinger]'
 	EMRINGER_MAIL_SENDER = 'EMRinger Server <donotreply@emringer.com>'
 	EMRINGER_ADMIN = os.environ.get('EMRINGER_ADMIN')
@@ -27,8 +26,8 @@ class DevelopmentConfig(Config):
 	MAIL_USERNAME = os.environ.get('GMAIL_USER')
 	MAIL_PASSWORD = os.environ.get('GMAIL_PASSWORD')
 	UPLOAD_FOLDER = os.path.join(basedir,'data_dev/')
-	SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-		'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+	MONGOALCHEMY_DATABASE = os.environ.get('DEV_DATABASE_URL') or \
+		'emringer_database_dev'
 	MAX_CONTENT_LENGTH = 2000 * 1024 * 1024 
 
 
@@ -36,14 +35,14 @@ class TestingConfig(Config):
  	TESTING = True
  	UPLOAD_FOLDER = os.path.join(basedir,'data_test/')
  	SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
- 		'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
+ 		'emringer_database_test'
 	MAX_CONTENT_LENGTH = 200 * 1024 * 1024
 
 
 class ProductionConfig(Config):
 	UPLOAD_FOLDER = os.environ.get('EMRINGER_UPLOAD_FOLDER') or os.path.join(basedir,'data/')
  	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
- 		'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+ 		'emringer_database'
  	MAX_CONTENT_LENGTH = 200 * 1024 * 1024
 
 

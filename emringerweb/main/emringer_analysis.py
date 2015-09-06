@@ -313,9 +313,9 @@ def main(args):
             # zscores_residues[i].append(zscores_n)
 
         output_dict['Thresholds'][threshold] = threshold_dict
-        # non_zero_thresholds.append(threshold)
-        # zscores.append(zscore_n)
-        # rotamer_ratios.append(rotamer_ratio_n)
+        non_zero_thresholds.append(threshold)
+        zscores.append(zscore_n)
+        rotamer_ratios.append(rotamer_ratio_n)
         # print "===== Plotting Histogram for Threshold %.3f =====" % threshold
         # plot_peaks(peak_count[threshold], file, threshold, args.first_rotamer, RMSD_statistic(peaks[threshold].peaks))
         # plot_rotamers(binned_peaks[threshold], file, threshold, args.first_rotamer)
@@ -343,6 +343,7 @@ def main(args):
 
     for index, value in enumerate(zscores):
         if value == max(zscores):
+            # print max(zscores)
             output_dict['Final Statistics'] = {
                 "Optimal Threshold": non_zero_thresholds[index],
                 "Rotamer Ratio at Optimal Threshold": rotamer_ratios[index],
@@ -356,7 +357,7 @@ def main(args):
         json.dump(output_dict, f)
         print f.name
 
-    return 1
+    return 0
 
 
 

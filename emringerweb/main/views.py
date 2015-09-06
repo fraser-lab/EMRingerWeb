@@ -9,7 +9,7 @@ from werkzeug import secure_filename
 
 from emringerweb import db
 from emringerweb.main import main_blueprint
-from emringerweb.models import Job, Residue, Angle
+# from emringerweb.models import Job, Residue, Angle
 from emringerweb.tasks import run_emringer
 
 
@@ -141,28 +141,57 @@ def index():
 	return render_template('index.html')#, form=form)
 
 
+
+@main_blueprint.route('/submit')
+# """The homepage for the app"""
+def submit():
+    # form = JobForm()
+    # if form.validate_on_submit():
+    #   return redirect(url_for('index'))
+    return render_template('submit.html')#, form=form)
+
+
+
 @main_blueprint.route('/start_job', methods=['POST',])
 def start_job():
     uuids = request.get_json()
     
+    print "Map: %s" % uuids[u'map']
     map_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(uuids[u'map']))
     map_file = os.listdir(map_folder)
-    assert length(map_file) == 1
+    assert len(map_file) == 1
     map_filename = os.path.join(map_folder, map_file[0])
 
+    print "Model: %s" % uuids[u'model']
     model_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(uuids[u'model']))
     model_file = os.listdir(model_folder)
-    assert length(model_file) == 1
+    assert len(model_file) == 1
     model_filename = os.path.join(model_folder, model_file[0])
 
     task = run_emringer.apply_async(args=[model_filename, map_filename])
+    print task.id
 
     return make_response(200, {'waiting_page': render_template('waiting_page.html', job_id=task.id)})
 
-@main_blueprint.route('/check_job', methods=['POST',])
+@main_blueprint.route('/check_status', methods=['POST','GET'])
 def check_job():
-    print request.get_json()[u'job_id']
-    return make_response(200, {'status': False})
+    job_id = request.get_json()[u'job_id']
+    task = run_emringer.AsyncResult(job_id)
+    if task.state != "SUCCESS":
+        return make_response(200, {'status': task.state})
+    else:
+        print job_id
+        return make_response(200, {'redirect': url_for(".show_result", job_id=job_id)})
+
+@main_blueprint.route('/show_result/<job_id>')
+def show_result(job_id):
+    print job_id
+    task = run_emringer.AsyncResult(job_id)
+    statistics = task.result[u"Final Statistics"]
+    return render_template('results.html', statistics=statistics)
+
+
+
 
 class UploadAPI(MethodView):
     """ View which will handle all upload requests sent by Fine Uploader.

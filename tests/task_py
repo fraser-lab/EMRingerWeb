@@ -1,0 +1,5 @@
+def emringer(map_file, model_file)
+    output = check_output(["/usr/local/phenix-1.10pre-2124/build/bin/cctbx.python", "emringerweb/main/emringer_analysis.py", pdbfile, mapfile], shell=True, stderr=subprocess.STDOUT)
+    results = json.load(output)
+    print results
+    return "please help me!"

@@ -5,6 +5,10 @@
 	Twitter: @benjaminbarad
 	Location: San Francisco, CA
 
+	Developer/Javascript Guru: Nicholas Merrill
+	Contact:
+	Location: Berkeley, CA
+
 	Principal Investigator: James S Fraser
 	Twitter: @fraser_lab
 	Location: San Francisco, CA
@@ -18,7 +22,7 @@
 
 /* SITE */
 	
-	Last Updated: 12/30/2014
+	Last Updated: 04/05/2015
 	Standards: HTML5
-	Components: Flask, Computational Crystallography Toolbox (cctbx), Bootstrap, JQuery File Uploader 
+	Components: Flask, Computational Crystallography Toolbox (cctbx), Bootstrap, FineUploader 
 	IDE: Sublime Text
