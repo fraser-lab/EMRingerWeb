@@ -3,7 +3,8 @@ var state;
 function initialize() {
 
   state = {
-    uploaders: {}
+    uploaders: {},
+    user_email: ""
   }
 
   // disable the submit button
@@ -60,6 +61,8 @@ function initializeUploader(div, allowedExtensions, sizeLimit, template) {
   }).on('complete', function(_,name,res,xhr) {
     state.uploaders[div].status = 'upload successful' 
     state.uploaders[div].uuid = xhr.form.qquuid
+    console.log(xhr.form)
+    state.user_email = xhr.form.user_email
     console.log(state.uploaders)
     if (uploadsCompleted()) {
       console.log(getJobRequestJson())
@@ -90,7 +93,7 @@ function postData() {
 
 function getJobRequestJson() {
   return JSON.stringify({ 'model': state.uploaders['#modelUploader'].uuid
-        , 'map': state.uploaders['#mapUploader'].uuid
+        , 'map': state.uploaders['#mapUploader'].uuid, 'user_email': state.user_email
       })
 }
 

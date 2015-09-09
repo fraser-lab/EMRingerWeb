@@ -1,11 +1,14 @@
 
-<h1>{{ job_id }}</h1>
-<p>this will be a pong game irl</p>
+<h1>Your job, comparing {{pdb_name}} with {{map_name}}, has been successfully submitted!</h1>
+<hr>
+<h3 id="status"> Job Status: {{status}}</h3>
+<hr>
+<p>This page will redirect to the results page as soon as the job is successful.</p>
 
 <script>
 
 (function() {
-	window.setInterval(checkIfJobDone, 5000);
+	window.setInterval(checkIfJobDone, 2000);
 })()
 
 function checkIfJobDone() {
@@ -17,7 +20,9 @@ function checkIfJobDone() {
         , contentType: "application/json"
         , data: JSON.stringify({ job_id: "{{ job_id }}" }) // {map: uuid, model: uuid}
         , success: function(data) {
-        	console.log(data)
+            if (data.status) {
+                $('#status').text("Job Status: " + data.status);
+            }
             if (data.redirect) {
                 // data.redirect contains the string URL to redirect to
                 window.location.href = data.redirect;
