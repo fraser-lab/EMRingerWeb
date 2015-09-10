@@ -8,11 +8,12 @@ from emringerweb.config import config
 from emringerweb.db import db
 from emringerweb.main import main_blueprint
 
+bootstrap = Bootstrap()
+mail = Mail()
+moment = Moment()
 
 def create_app(config_name):
-    bootstrap = Bootstrap()
-    mail = Mail()
-    moment = Moment()
+
     app = Flask(__name__)
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)

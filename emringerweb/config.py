@@ -3,9 +3,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
 	SECRET_KEY = os.environ.get('SECRET_KEY')
-	EMRINGER_MAIL_SUBJECT_PREFIX = '[EMRinger]'
-	EMRINGER_MAIL_SENDER = 'EMRinger Server <donotreply@emringer.com>'
-	EMRINGER_ADMIN = os.environ.get('EMRINGER_ADMIN')
 	ALLOWED_EXTENSIONS={'MAP':set(['ccp4','map','mrc']),'PDB':set(['pdb','ent'])}
 	IGNORED_FILES = set(['.gitignore'])
 	MEDIA_ROOT = os.path.join(basedir, 'data')
@@ -14,18 +11,23 @@ class Config:
 	CELERY_BROKER_URL = 'redis://localhost:6379/0'
 	CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
+	# FLASK MAIL
+	EMRINGER_MAIL_SUBJECT_PREFIX = '[EMRinger]'
+	MAIL_DEFAULT_SENDER = 'EMRinger Web Server <emringer@fraserlab.com>'
+	ADMINS = ['emringer@fraserlab.com']
+	MAIL_SERVER='smtp.gmail.com'
+	MAIL_PORT=465
+	MAIL_USE_SSL=True
+	MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+	MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+
 	@staticmethod
 	def init_app(app):
 		pass
 
 class DevelopmentConfig(Config):
 	DEBUG = True
-	MAIL_SERVER = 'smtp.googlemail.com'
-	MAIL_PORT = 587
-	MAIL_USE_TLS = True
-	MAIL_USERNAME = os.environ.get('GMAIL_USER')
-	MAIL_PASSWORD = os.environ.get('GMAIL_PASSWORD')
-	UPLOAD_FOLDER = os.path.join(basedir,'data_dev/')
+	SERVER_NAME = "emringer.ngrok.com"
 	MONGOALCHEMY_DATABASE = os.environ.get('DEV_DATABASE_URL') or \
 		'emringer_database_dev'
 	MAX_CONTENT_LENGTH = 2000 * 1024 * 1024 

@@ -11,8 +11,12 @@ flask/
 data-dev.sqlite
 
 *.rdb
+*.pdb
+*.ccp4
 
-test_model.pdb
-test_map.ccp4
+!test_model.pdb
+!test_map.ccp4
 
 data/
+
+.DS_Store

@@ -1,0 +1,5 @@
+Your job on the EMRinger webserver, comparing {{pdbfile}} with {{mapfile}}, ran successfully.
+
+Your EMRinger score is {{statistics['EMRinger Score']}}.
+
+For more information, check out {{url_for('.display_result', job_id=task_id, _external=True)}}.

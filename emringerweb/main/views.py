@@ -174,19 +174,28 @@ def check_job():
     task = run_emringer.AsyncResult(job_id)
     if task.state == "SUCCESS":
         print job_id
-        return make_response(200, {'status': task.state, 'redirect': url_for(".show_result", job_id=job_id)})
+        return make_response(200, {'status': task.state, 'redirect': url_for(".display_result", job_id=job_id)})
     elif task.state == "FAILED":
         return make_response(200, {'status': task.state, 'redirect': url_for(".job_failed",job_id=job_id)})
     else:
         return make_response(200, {'status': task.state})
 
 @main_blueprint.route('/show_result/<job_id>')
-def show_result(job_id):
+def display_result(job_id):
     print job_id
     task = run_emringer.AsyncResult(job_id)
     statistics = task.result[u"Final Statistics"]
     return render_template('results.html', statistics=statistics)
 
+@main_blueprint.route('/get_result/<job_id>')
+def get_result(job_id):
+    print job_id
+    task = run_emringer.AsyncResult(job_id)
+    data = task.result
+    if task.status == "SUCCESS":
+        return make_response(200, data)
+    else:
+        return make_response(500, {"status": task.status})
 
 
 
