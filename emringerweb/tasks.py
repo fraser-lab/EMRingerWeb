@@ -10,7 +10,8 @@ from flask import current_app, render_template
 from flask.ext.mail import Message
 from werkzeug import secure_filename
 
-from emringerweb.app import mail, make_celery_app
+from emringerweb.app import make_celery_app
+from emringerweb.email import send_email
 
 
 celery = make_celery_app(current_app)
@@ -28,7 +29,7 @@ def run_emringer(pdbfile, mapfile, pdbuuid=None, mapuuid=None, user_email=None):
 
   if user_email:
     task_id = run_emringer.request.id
-    email_task = send_email.apply_async(args=[data, user_email, pdbfile, mapfile, task_id])
+    email_task = send_asynchronous_email.apply_async(args=[data, user_email, os.path.basename(pdbfile), os.path.basename(mapfile), task_id])
   if pdbuuid:
     handle_delete.apply_async(args=[pdbuuid])
   if mapuuid:
@@ -36,16 +37,11 @@ def run_emringer(pdbfile, mapfile, pdbuuid=None, mapuuid=None, user_email=None):
   return data
 
 @celery.task
-def send_email(results, email, pdbfile, mapfile, task_id):
-  msg = Message('[EMRinger] Results for %s and %s' % (pdbfile, mapfile), 
-                sender=current_app.config["ADMINS"][0], recipients=[email])
-  statistics = results["Final Statistics"]
-  url = url_for()
-  msg.body=render_template("email/success.txt", pdbfile=pdbfile, 
-                            mapfile=mapfile, statistics=statistics, 
-                            task_id=task_id)
-  mail.send(msg)
-  print "Success email sent to %s" % email
+def send_asynchronous_email(results, email, pdbfile, mapfile, task_id):
+  if send_email(results, email, pdbfile, mapfile, task_id):
+    print "Success email sent to %s" % email
+  else:
+    print "Sending mail to %s failed" % email
 
 
 @celery.task

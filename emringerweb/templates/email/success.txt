@@ -1,5 +1,16 @@
 Your job on the EMRinger webserver, comparing {{pdbfile}} with {{mapfile}}, ran successfully.
 
-Your EMRinger score is {{statistics['EMRinger Score']}}.
+Your EMRinger score is {{"%.2f" | format(statistics['EMRinger Score'])}}.
 
-For more information, check out {{url_for('.display_result', job_id=task_id, _external=True)}}.
+For more information, check out {{url}}.
+
+Citing EMRinger: Barad B.A., Echols N., Wang R.Y.-R., Cheng Y.C., DiMaio F., 
+Adams P.D., Fraser J.S. EMRinger: side-chain-directed model and map validation 
+for 3D electron cryomicroscopy. Nature Methods published online 17 August 2015; 
+doi:10.1038/nmeth.3541
+
+
+The EMRinger webserver is under active development in the Fraser lab at UCSF. 
+Please respond to this email with any problems, or post an issue at 
+https://github.com/fraser-lab/emringerweb/issues. If you have gotten this email 
+in error, please let us know by responding to this email!

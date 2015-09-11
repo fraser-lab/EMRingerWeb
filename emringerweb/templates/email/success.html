@@ -1,0 +1,35 @@
+<h1>EMRinger Results Summary</h1>
+<h2> Statistics for {{pdbfile}} and {{mapfile}}</h2>
+<div class="table-responsive">
+<table class="table table-striped">
+<tbody>
+<tr>
+  <td> EMRinger Score:</td>
+  <td> {{ statistics["EMRinger Score"]}}</td>
+</tr>
+<tr>
+  <td> Total Residues Scanned: </td>
+  <td> {{ statistics["Total Residues Scanned"]}}</td>
+</tr>
+<tr>
+  <td>Optimal Threshold: </td> <td>{{ statistics["Optimal Threshold"]}}</td>
+  </tr>
+  <tr>
+  <td>Rotamer Ratio at Optimal Threshold:</td><td> {{ statistics["Rotamer Ratio at Optimal Threshold"]}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p><a href={{url}}>View these results and additional visualizations on the EMRinger webserver</a>.</p>
+
+
+<hr>
+<div id="footer footer-fixed-bottom">
+  <div class="container">
+    <p class="text-muted credit"> <strong>Citing EMRinger</strong>: Barad B.A., Echols N., Wang R.Y.-R., Cheng Y.C., DiMaio F., Adams P.D., Fraser J.S. 
+    EMRinger: side-chain-directed model and map validation for 3D electron cryomicroscopy. <em>Nature Methods</em> published online 
+    17 August 2015; doi:<a href="http://dx.doi.org/10.1038/nmeth.3541">10.1038/nmeth.3541</a>.</p>
+    <p class="text-muted credit"> The EMRinger webserver is under active development in the <a href="http://fraserlab.com">Fraser Lab at UCSF</a>. Please respond to this email with any problems, or post an issue on <a href="https://github.com/fraser-lab/emringerweb/issues">Github</a>. If you have gotten this email in error, please let us know by responding to this email!</p>
+  </div>
+</div>

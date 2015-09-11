@@ -128,21 +128,17 @@ def combine_chunks(total_parts, total_size, source_folder, dest):
 
 
 @main_blueprint.route('/')
-# """The homepage for the app"""
 def index():
-	# form = JobForm()
-	# if form.validate_on_submit():
-	# 	return redirect(url_for('index'))
-	return render_template('index.html')#, form=form)
+    """The homepage for the app"""
+    # This page is not 
+    return render_template('index.html')#, form=form)
 
 
 
 @main_blueprint.route('/submit')
-# """The homepage for the app"""
+
 def submit():
-    # form = JobForm()
-    # if form.validate_on_submit():
-    #   return redirect(url_for('index'))
+    """The submission page for the app"""
     return render_template('submit.html')#, form=form)
 
 
@@ -174,7 +170,7 @@ def check_job():
     task = run_emringer.AsyncResult(job_id)
     if task.state == "SUCCESS":
         print job_id
-        return make_response(200, {'status': task.state, 'redirect': url_for(".display_result", job_id=job_id)})
+        return make_response(200, {'status': task.state, 'redirect': url_for("main.display_result", job_id=job_id)})
     elif task.state == "FAILED":
         return make_response(200, {'status': task.state, 'redirect': url_for(".job_failed",job_id=job_id)})
     else:
