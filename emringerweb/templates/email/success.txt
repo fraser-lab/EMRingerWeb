@@ -2,6 +2,7 @@ Your job on the EMRinger webserver, comparing {{pdbfile}} with {{mapfile}}, ran 
 
 Your EMRinger score is {{"%.2f" | format(statistics['EMRinger Score'])}}.
 
+{# url is totally hacky... it may be broken so check frequently! #}
 For more information, check out {{url}}.
 
 Citing EMRinger: Barad B.A., Echols N., Wang R.Y.-R., Cheng Y.C., DiMaio F., 

@@ -34,7 +34,7 @@ def run_emringer(pdbfile, mapfile, pdbuuid=None, mapuuid=None, user_email=None):
     handle_delete.apply_async(args=[pdbuuid])
   if mapuuid:
     handle_delete.apply_async(args=[mapuuid])
-  return data
+  return data, os.path.basename(pdbfile), os.path.basename(mapfile)
 
 @celery.task
 def send_asynchronous_email(results, email, pdbfile, mapfile, task_id):

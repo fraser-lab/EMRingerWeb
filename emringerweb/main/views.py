@@ -180,14 +180,15 @@ def check_job():
 def display_result(job_id):
     print job_id
     task = run_emringer.AsyncResult(job_id)
-    statistics = task.result[u"Final Statistics"]
-    return render_template('results.html', statistics=statistics)
+    data, pdbfile, mapfile = task.result
+    statistics = data[u"Final Statistics"]
+    return render_template('results.html', statistics=statistics, pdbfile=pdbfile, mapfile=mapfile)
 
 @main_blueprint.route('/get_result/<job_id>')
 def get_result(job_id):
     print job_id
     task = run_emringer.AsyncResult(job_id)
-    data = task.result
+    data,_,_ = task.result
     if task.status == "SUCCESS":
         return make_response(200, data)
     else:
