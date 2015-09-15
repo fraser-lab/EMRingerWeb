@@ -13,7 +13,7 @@ data-dev.sqlite
 *.rdb
 *.pdb
 *.ccp4
-
+*.map
 !test_model.pdb
 !test_map.ccp4
 

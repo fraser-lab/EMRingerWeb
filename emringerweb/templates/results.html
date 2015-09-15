@@ -1,5 +1,25 @@
 {% extends "base.html" %}
 
+{% block head %}
+
+<meta id='job-info' data-id="{{ job_id }}">
+{{ super() }}
+
+{% endblock head%}
+
 {% block page_content %}
 {% include "summary_statistics.html" %}
-{% endblock %}
+<div id="buttons"></div>
+<div id="graph"></div>
+<div id="checkboxes"></div>
+
+{% endblock page_content %}
+
+{% block scripts %}
+{{ super() }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<!-- Script for visualizations after loading. -->
+<script src="{{url_for('static', filename='js/visualizations.js')}}"></script>
+
+{% endblock scripts %}

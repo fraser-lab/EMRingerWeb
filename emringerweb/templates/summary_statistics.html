@@ -1,0 +1,22 @@
+<h1>EMRinger Results Summary</h1>
+<h2> Statistics for {{pdbfile}} and {{mapfile}}</h2>
+<div class="table-responsive">
+<table class="table table-striped">
+<tbody>
+<tr>
+  <td> EMRinger Score:</td>
+  <td> {{ statistics["EMRinger Score"]}}</td>
+</tr>
+<tr>
+  <td> Total Residues Scanned: </td>
+  <td> {{ statistics["Total Residues Scanned"]}}</td>
+</tr>
+<tr>
+  <td>Optimal Threshold: </td> <td>{{ statistics["Optimal Threshold"]}}</td>
+  </tr>
+  <tr>
+  <td>Rotamer Ratio at Optimal Threshold:</td><td> {{ statistics["Rotamer Ratio at Optimal Threshold"]}}</td>
+</tr>
+</tbody>
+</table>
+</div>

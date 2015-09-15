@@ -3,7 +3,7 @@ from os.path import abspath
 import json
 import os
 
-from flask import render_template, session, redirect, request, url_for, current_app 
+from flask import render_template, session, redirect, request, url_for, current_app, abort
 from flask.views import MethodView
 from werkzeug import secure_filename
 
@@ -159,20 +159,22 @@ def start_job():
     assert len(model_file) == 1
     model_filename = os.path.join(model_folder, model_file[0])
 
-    task = run_emringer.apply_async(args=[model_filename, map_filename, secure_filename(job_request[u'model']), secure_filename(job_request[u'map']), job_request[u"user_email"] or None])
+    task = run_emringer.apply_async(args=[model_filename, map_filename, secure_filename(job_request[u'model']), 
+                                          secure_filename(job_request[u'map']), job_request[u"user_email"] or None])
     print task.id
 
-    return make_response(200, {'waiting_page': render_template('waiting_page.html', job_id=task.id, pdb_name=model_file[0], map_name=map_file[0], status="SUBMITTED")})
+    return make_response(200, {'waiting_page': render_template('waiting_page.html', job_id=task.id, pdb_name=model_file[0], 
+                                                                map_name=map_file[0], status="SUBMITTED")})
 
-@main_blueprint.route('/check_status', methods=['POST','GET'])
+@main_blueprint.route('/check_status', methods=['POST'])
 def check_job():
     job_id = request.get_json()[u'job_id']
     task = run_emringer.AsyncResult(job_id)
     if task.state == "SUCCESS":
         print job_id
         return make_response(200, {'status': task.state, 'redirect': url_for("main.display_result", job_id=job_id)})
-    elif task.state == "FAILED":
-        return make_response(200, {'status': task.state, 'redirect': url_for(".job_failed",job_id=job_id)})
+    # elif task.state == "FAILED":
+    #     return make_response(200, {'status': task.state, 'redirect': url_for(".job_failed",job_id=job_id)})
     else:
         return make_response(200, {'status': task.state})
 
@@ -180,12 +182,20 @@ def check_job():
 def display_result(job_id):
     print job_id
     task = run_emringer.AsyncResult(job_id)
-    data, pdbfile, mapfile = task.result
-    statistics = data[u"Final Statistics"]
-    return render_template('results.html', statistics=statistics, pdbfile=pdbfile, mapfile=mapfile)
+    print task.status
+    if task.status=="SUCCESS":
+        data, pdbfile, mapfile = task.result
+        statistics = data[u"Final Statistics"]
+        return render_template('results.html', statistics=statistics, pdbfile=pdbfile, mapfile=mapfile, job_id=job_id)
+    elif task.status == "REVOKED":
+        return abort(410)
+    else:
+        return abort(404)
 
-@main_blueprint.route('/get_result/<job_id>')
-def get_result(job_id):
+
+@main_blueprint.route('/get_result', methods=['POST',])
+def get_result():
+    job_id = request.get_json()[u'job_id']
     print job_id
     task = run_emringer.AsyncResult(job_id)
     data,_,_ = task.result
