@@ -108,7 +108,7 @@ def statistic(binned_peaks):
     # else:
         # print "\t pscore greater than 0.5"
 
-    return zscore, rotamer_ratio
+    return zscore, rotamer_ratio, rotamer_count
 
 def RMSD_statistic(peak_list):
     # Still not clear how useful RMSD is but angular deviations tend to be heavily dependent on sample size (as outliers are overweighted).
@@ -235,7 +235,7 @@ def calc_ratio(count_list, args):
     mean= total_count/2
     rotamer_ratio=rotamer_count/(total_count+0.000000000000000000001)
     zscore=(rotamer_count-mean)/(stdev+0.000000000000000000001)
-    return rotamer_ratio, zscore
+    return rotamer_ratio, zscore, rotamer_count
 
 
 # def make_dir(f):
@@ -295,13 +295,13 @@ def main(args):
         binned_peaks[threshold] = calculate_binned_counts(peak_count[threshold], 60)
         # print "For threshold %.3f" % threshold
         # print "Sample size = %d" % sum(binned_peaks[threshold])
-        zscore_n, rotamer_ratio_n = statistic(binned_peaks[threshold])
+        zscore_n, rotamer_ratio_n, rotamer_count_n = statistic(binned_peaks[threshold])
         if rotamer_ratio_n==0: 
             break
         for i in Residue_codes:
-            rotamer_ratios_residues_n, zscores_n = calc_ratio(residue_peak_count[i][threshold], args)
+            rotamer_ratios_residues_n, zscores_n, rotamer_count_n = calc_ratio(residue_peak_count[i][threshold], args)
             threshold_dict[i] = {
-                "Rotamer Ratio": rotamer_ratios_residues_n,
+                "Rotamer Count": rotamer_count_n,
                 "Number Scanned": sum(residue_peak_count[i][threshold]),
                 "Peak Histogram": residue_peak_count[i][threshold],
             }
