@@ -22,18 +22,21 @@ def run_emringer(pdbfile, mapfile, pdbuuid=None, mapuuid=None, user_email=None):
   output = subprocess.Popen(["/usr/local/phenix-1.10pre-2124/build/bin/phenix.python", 
                               "emringerweb/main/emringer_analysis.py", pdbfile, mapfile], 
                               stdout=subprocess.PIPE).communicate()
-  # Print warnings/errors
-  print output[1]
+  # Print result
+  print output[0]
+  # print warnings
+  if output[1]:
+    print output[1]
   with open(output[0].strip("\n"), 'r') as file:
     data = json.loads(file.read())
 
   if user_email:
     task_id = run_emringer.request.id
-    email_task = send_asynchronous_email.apply_async(args=[data, user_email, os.path.basename(pdbfile), os.path.basename(mapfile), task_id])
+    email_task = send_asynchronous_email.apply_async(args=[data, user_email, os.path.basename(pdbfile), os.path.basename(mapfile), task_id], expires=60*60*24)
   if pdbuuid:
-    handle_delete.apply_async(args=[pdbuuid])
+    handle_delete.apply_async(args=[pdbuuid], expires=60*60*24)
   if mapuuid:
-    handle_delete.apply_async(args=[mapuuid])
+    handle_delete.apply_async(args=[mapuuid], expires=60*60*24)
   return data, os.path.basename(pdbfile), os.path.basename(mapfile)
 
 @celery.task
