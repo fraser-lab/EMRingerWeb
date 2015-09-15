@@ -13,6 +13,7 @@
   "Thresholds": {
     "0.5772947600484355": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -91,6 +92,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -169,6 +171,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -247,6 +250,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -325,6 +329,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -403,6 +408,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -481,6 +487,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -559,6 +566,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -637,6 +645,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -715,6 +724,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -793,6 +803,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -871,6 +882,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -949,6 +961,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1027,6 +1040,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1105,6 +1119,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1183,6 +1198,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1263,6 +1279,7 @@
     },
     "0.52406432566278582": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1341,6 +1358,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1419,6 +1437,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1497,6 +1516,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1575,6 +1595,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1653,6 +1674,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -1731,6 +1753,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1809,6 +1832,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1887,6 +1911,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -1965,6 +1990,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -2043,6 +2069,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -2121,6 +2148,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -2199,6 +2227,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -2277,6 +2306,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -2355,6 +2385,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -2433,6 +2464,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -2513,6 +2545,7 @@
     },
     "0.65714041162691006": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -2591,6 +2624,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -2669,6 +2703,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -2747,6 +2782,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -2825,6 +2861,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -2903,6 +2940,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -2981,6 +3019,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3059,6 +3098,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3137,6 +3177,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3215,6 +3256,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3293,6 +3335,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3371,6 +3414,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3449,6 +3493,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3527,6 +3572,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3605,6 +3651,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3683,6 +3730,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3763,6 +3811,7 @@
     },
     "0.47083389127713604": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3841,6 +3890,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3919,6 +3969,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -3997,6 +4048,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -4075,6 +4127,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -4153,6 +4206,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -4231,6 +4285,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -4309,6 +4364,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -4387,6 +4443,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -4465,6 +4522,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -4543,6 +4601,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -4621,6 +4680,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -4699,6 +4759,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -4777,6 +4838,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -4855,6 +4917,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -4933,6 +4996,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -5013,6 +5077,7 @@
     },
     "0.41760345689148637": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -5091,6 +5156,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -5169,6 +5235,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -5247,6 +5314,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -5325,6 +5393,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -5403,6 +5472,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -5481,6 +5551,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -5559,6 +5630,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -5637,6 +5709,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -5715,6 +5788,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -5793,6 +5867,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -5871,6 +5946,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -5949,6 +6025,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6027,6 +6104,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6105,6 +6183,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6183,6 +6262,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -6263,6 +6343,7 @@
     },
     "0.39098823969866148": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6341,6 +6422,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6419,6 +6501,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6497,6 +6580,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6575,6 +6659,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6653,6 +6738,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 2,
         "Number Scanned": 2,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -6731,6 +6817,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6809,6 +6896,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6887,6 +6975,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -6965,6 +7054,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -7043,6 +7133,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -7121,6 +7212,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -7199,6 +7291,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -7277,6 +7370,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -7355,6 +7449,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -7433,6 +7528,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -7513,6 +7609,7 @@
     },
     "0.33775780531301181": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -7591,6 +7688,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -7669,6 +7767,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -7747,6 +7846,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -7825,6 +7925,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -7903,6 +8004,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 2,
         "Number Scanned": 2,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -7981,6 +8083,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -8059,6 +8162,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -8137,6 +8241,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -8215,6 +8320,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -8293,6 +8399,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -8371,6 +8478,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -8449,6 +8557,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -8527,6 +8636,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -8605,6 +8715,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -8683,6 +8794,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -8763,6 +8875,7 @@
     },
     "0.28452737092736202": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -8841,6 +8954,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -8919,6 +9033,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -8997,6 +9112,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -9075,6 +9191,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -9153,6 +9270,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 2,
         "Number Scanned": 2,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -9231,6 +9349,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -9309,6 +9428,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -9387,6 +9507,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -9465,6 +9586,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -9543,6 +9665,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -9621,6 +9744,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 2,
         "Rotamer Ratio": 0.5,
         "Peak Histogram": [
@@ -9699,6 +9823,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -9777,6 +9902,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -9855,6 +9981,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -9933,6 +10060,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -10013,6 +10141,7 @@
     },
     "0.25791215373453719": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -10091,6 +10220,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -10169,6 +10299,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -10247,6 +10378,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -10325,6 +10457,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -10403,6 +10536,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 2,
         "Number Scanned": 2,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -10481,6 +10615,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -10559,6 +10694,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -10637,6 +10773,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -10715,6 +10852,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -10793,6 +10931,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -10871,6 +11010,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 2,
         "Rotamer Ratio": 0.5,
         "Peak Histogram": [
@@ -10949,6 +11089,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11027,6 +11168,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11105,6 +11247,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11183,6 +11326,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -11263,6 +11407,7 @@
     },
     "0.36437302250583659": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11341,6 +11486,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11419,6 +11565,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11497,6 +11644,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11575,6 +11723,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11653,6 +11802,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 2,
         "Number Scanned": 2,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -11731,6 +11881,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11809,6 +11960,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11887,6 +12039,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -11965,6 +12118,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -12043,6 +12197,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -12121,6 +12276,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -12199,6 +12355,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -12277,6 +12434,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -12355,6 +12513,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -12433,6 +12592,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -12513,6 +12673,7 @@
     },
     "0.60390997724126039": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -12591,6 +12752,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -12669,6 +12831,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -12747,6 +12910,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -12825,6 +12989,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -12903,6 +13068,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -12981,6 +13147,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13059,6 +13226,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13137,6 +13305,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13215,6 +13384,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13293,6 +13463,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13371,6 +13542,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13449,6 +13621,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13527,6 +13700,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13605,6 +13779,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13683,6 +13858,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13763,6 +13939,7 @@
     },
     "0.31114258812018691": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13841,6 +14018,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13919,6 +14097,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -13997,6 +14176,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -14075,6 +14255,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -14153,6 +14334,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 2,
         "Number Scanned": 2,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -14231,6 +14413,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -14309,6 +14492,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -14387,6 +14571,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -14465,6 +14650,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -14543,6 +14729,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -14621,6 +14808,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -14699,6 +14887,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -14777,6 +14966,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -14855,6 +15045,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -14933,6 +15124,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -15013,6 +15205,7 @@
     },
     "0.23129693654171235": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -15091,6 +15284,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -15169,6 +15363,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -15247,6 +15442,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -15325,6 +15521,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -15403,6 +15600,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 2,
         "Number Scanned": 2,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -15481,6 +15679,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -15559,6 +15758,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -15637,6 +15837,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -15715,6 +15916,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -15793,6 +15995,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -15871,6 +16074,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 2,
         "Rotamer Ratio": 0.5,
         "Peak Histogram": [
@@ -15949,6 +16153,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -16027,6 +16232,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -16105,6 +16311,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -16183,6 +16390,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -16263,6 +16471,7 @@
     },
     "0.20468171934888746": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -16341,6 +16550,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -16419,6 +16629,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -16497,6 +16708,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -16575,6 +16787,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -16653,6 +16866,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 2,
         "Number Scanned": 2,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -16731,6 +16945,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -16809,6 +17024,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -16887,6 +17103,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -16965,6 +17182,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -17043,6 +17261,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -17121,6 +17340,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 2,
         "Rotamer Ratio": 0.5,
         "Peak Histogram": [
@@ -17199,6 +17419,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -17277,6 +17498,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -17355,6 +17577,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -17433,6 +17656,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -17513,6 +17737,7 @@
     },
     "0.17806650215606262": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -17591,6 +17816,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -17669,6 +17895,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -17747,6 +17974,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -17825,6 +18053,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 1,
         "Number Scanned": 2,
         "Rotamer Ratio": 0.5,
         "Peak Histogram": [
@@ -17903,6 +18132,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 2,
         "Number Scanned": 2,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -17981,6 +18211,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -18059,6 +18290,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -18137,6 +18369,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -18215,6 +18448,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -18293,6 +18527,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -18371,6 +18606,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 2,
         "Rotamer Ratio": 0.5,
         "Peak Histogram": [
@@ -18449,6 +18685,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -18527,6 +18764,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -18605,6 +18843,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 1,
         "Number Scanned": 2,
         "Rotamer Ratio": 0.5,
         "Peak Histogram": [
@@ -18683,6 +18922,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -18763,6 +19003,7 @@
     },
     "0.15145128496323776": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -18841,6 +19082,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -18919,6 +19161,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -18997,6 +19240,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -19075,6 +19319,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 1,
         "Number Scanned": 2,
         "Rotamer Ratio": 0.5,
         "Peak Histogram": [
@@ -19153,6 +19398,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 2,
         "Number Scanned": 2,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -19231,6 +19477,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -19309,6 +19556,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -19387,6 +19635,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -19465,6 +19714,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -19543,6 +19793,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -19621,6 +19872,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 2,
         "Number Scanned": 3,
         "Rotamer Ratio": 0.6666666666666666,
         "Peak Histogram": [
@@ -19699,6 +19951,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -19777,6 +20030,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -19855,6 +20109,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 1,
         "Number Scanned": 2,
         "Rotamer Ratio": 0.5,
         "Peak Histogram": [
@@ -19933,6 +20188,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -20013,6 +20269,7 @@
     },
     "0.49744910846996093": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -20091,6 +20348,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -20169,6 +20427,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -20247,6 +20506,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -20325,6 +20585,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -20403,6 +20664,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -20481,6 +20743,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -20559,6 +20822,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -20637,6 +20901,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -20715,6 +20980,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -20793,6 +21059,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -20871,6 +21138,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -20949,6 +21217,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21027,6 +21296,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21105,6 +21375,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21183,6 +21454,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -21263,6 +21535,7 @@
     },
     "0.5506795428556106": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21341,6 +21614,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21419,6 +21693,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21497,6 +21772,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21575,6 +21851,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21653,6 +21930,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -21731,6 +22009,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21809,6 +22088,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21887,6 +22167,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -21965,6 +22246,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -22043,6 +22325,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -22121,6 +22404,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -22199,6 +22483,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -22277,6 +22562,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -22355,6 +22641,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -22433,6 +22720,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -22513,6 +22801,7 @@
     },
     "0.63052519443408517": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -22591,6 +22880,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -22669,6 +22959,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -22747,6 +23038,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -22825,6 +23117,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -22903,6 +23196,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -22981,6 +23275,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23059,6 +23354,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23137,6 +23433,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23215,6 +23512,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23293,6 +23591,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23371,6 +23670,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23449,6 +23749,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23527,6 +23828,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23605,6 +23907,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23683,6 +23986,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23763,6 +24067,7 @@
     },
     "0.44421867408431126": {
       "CYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23841,6 +24146,7 @@
         ]
       },
       "ASP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23919,6 +24225,7 @@
         ]
       },
       "SER": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -23997,6 +24304,7 @@
         ]
       },
       "GLN": {
+        "Rotamer Count": 0,
         "Number Scanned": 1,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -24075,6 +24383,7 @@
         ]
       },
       "LYS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -24153,6 +24462,7 @@
         ]
       },
       "PHE": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -24231,6 +24541,7 @@
         ]
       },
       "ASN": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -24309,6 +24620,7 @@
         ]
       },
       "MET": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -24387,6 +24699,7 @@
         ]
       },
       "HIS": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -24465,6 +24778,7 @@
         ]
       },
       "SEC": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -24543,6 +24857,7 @@
         ]
       },
       "LEU": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -24621,6 +24936,7 @@
         ]
       },
       "ARG": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
@@ -24699,6 +25015,7 @@
         ]
       },
       "TRP": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -24777,6 +25094,7 @@
         ]
       },
       "PYL": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -24855,6 +25173,7 @@
         ]
       },
       "GLU": {
+        "Rotamer Count": 0,
         "Number Scanned": 0,
         "Rotamer Ratio": 0.0,
         "Peak Histogram": [
@@ -24933,6 +25252,7 @@
         ]
       },
       "TYR": {
+        "Rotamer Count": 1,
         "Number Scanned": 1,
         "Rotamer Ratio": 1.0,
         "Peak Histogram": [
