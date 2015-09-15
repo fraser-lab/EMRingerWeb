@@ -13,7 +13,7 @@ The EMRinger web server has not been published formally. Please cite the paper d
 > 17 August 2015; doi:[10.1038/nmeth.3541](http://dx.doi.org/10.1038/nmeth.3541).
 
 ## What is EMRinger?
-Coming soon - in the mean time, read the paper or the [blog post about it](http://fraserlab.com/2015/02/18/EMRinger/)
+Coming soon - in the mean time, read the paper (a preprint is available on [biorxiv](http://biorxiv.org/content/early/2015/02/03/014738)), or the [blog post about it](http://fraserlab.com/2015/02/18/EMRinger/).
 
 ## Who Develops EMRinger?
 Ringer was developed by the Alber lab at UC Berkeley. 
