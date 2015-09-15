@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
@@ -8,9 +9,10 @@ class Config:
 	MEDIA_ROOT = os.path.join(basedir, 'data')
 	UPLOAD_DIRECTORY = os.path.join(MEDIA_ROOT, 'upload')
 	CHUNKS_DIRECTORY = os.path.join(MEDIA_ROOT, 'chunks')
+	# Celery settings
 	CELERY_BROKER_URL = 'redis://localhost:6379/0'
 	CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-
+	CELERY_TASK_RESULT_EXPIRES = timedelta(days=7)
 	# FLASK MAIL
 	EMRINGER_MAIL_SUBJECT_PREFIX = '[EMRinger]'
 	MAIL_DEFAULT_SENDER = 'EMRinger Web Server <emringer@fraserlab.com>'
