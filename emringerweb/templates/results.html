@@ -11,7 +11,16 @@
 {% include "summary_statistics.html" %}
 <div id="buttons"></div>
 <div id="graph"></div>
-<div id="checkboxes"></div>
+<form id="options">
+  <div class="form-group" id="aminos" class="hide">
+    <label for="amino_checkboxes" class="control-label">Amino Acids </label>
+    <div class="checkbox" id ="amino_checkboxes">
+      <!-- dynamically loaded -->
+    </div>
+  </div>
+  <div id="cutoffs" class="hide"></div>
+  <div id="residues" class="hide"></div>
+</div>
 
 {% endblock page_content %}
 
