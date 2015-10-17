@@ -20,3 +20,5 @@ data-dev.sqlite
 data/
 
 .DS_Store
+
+node_modules

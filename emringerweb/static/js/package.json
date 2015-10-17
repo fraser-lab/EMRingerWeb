@@ -1,0 +1,14 @@
+{
+  "name": "emringerweb_js",
+  "version": "1.0.0",
+  "description": "npm management of requirements for the visualizations scripts of emringerweb",
+  "main": "visualizations.js",
+  "scripts": {
+    "test": "watchify visualizations.js -o visualizations-bundle.js"
+  },
+  "author": "Benjamin Barad",
+  "license": "BSD",
+  "dependencies": {
+    "compute-add": "^2.0.0"
+  }
+}
