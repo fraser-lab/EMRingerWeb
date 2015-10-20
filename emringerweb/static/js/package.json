@@ -9,6 +9,8 @@
   "author": "Benjamin Barad",
   "license": "BSD",
   "dependencies": {
-    "compute-add": "^2.0.0"
+    "bootstrap-slider": "^5.2.3",
+    "compute-add": "^2.0.0",
+    "jquery": "^2.1.4"
   }
 }

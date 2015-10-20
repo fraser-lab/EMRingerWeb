@@ -98,3 +98,11 @@ EC
     height: 100%;
 }
 
+.slider {
+  align: center;
+}
+
+input[type=range] {
+  display: inline;
+  width: 70%;
+}

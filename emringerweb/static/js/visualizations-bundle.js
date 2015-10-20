@@ -1,3 +1,294 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
+
+// MODULES //
+
+var isArray = require( 'validate.io-array' ),
+	isObject = require( 'validate.io-object' ),
+	isFunction = require( 'validate.io-function' ),
+	isBoolean = require( 'validate.io-boolean-primitive' ),
+	isNumber = require( 'validate.io-number-primitive' );
+
+
+// ADD //
+
+/**
+* FUNCTION: add( arr, x[, opts] )
+*	Computes an element-wise addition.
+*
+* @param {Number[]|Array} arr - input array
+* @param {Number[]|Array|Number} x - either an array of equal length or a scalar
+* @param {Object} [opts] - function options
+* @param {Boolean} [opts.copy=true] - boolean indicating whether to return a new array
+* @param {Function} [opts.accessor] - accessor function for accessing array values
+* @returns {Number[]} output array
+*/
+function add( arr, x, opts ) {
+	var isArr = isArray( x ),
+		copy = true,
+		arity,
+		clbk,
+		out,
+		len,
+		i;
+
+	if ( !isArray( arr ) ) {
+		throw new TypeError( 'add()::invalid input argument. Must provide an array. Value: `' + arr + '`.' );
+	}
+	if ( !isArr && !isNumber( x ) ) {
+		throw new TypeError( 'add()::invalid input argument. Second argument must either be an array or number primitive. Value: `' + x + '`.' );
+	}
+	if ( arguments.length > 2 ) {
+		if ( !isObject( opts ) ) {
+			throw new TypeError( 'add()::invalid input argument. Options argument must be an object. Value: `' + opts + '`.' );
+		}
+		if ( opts.hasOwnProperty( 'copy' ) ) {
+			copy = opts.copy;
+			if ( !isBoolean( copy ) ) {
+				throw new TypeError( 'add()::invalid option. Copy option must be a boolean primitive. Option: `' + copy + '`.' );
+			}
+		}
+		if ( opts.hasOwnProperty( 'accessor' ) ) {
+			clbk = opts.accessor;
+			if ( !isFunction( clbk ) ) {
+				throw new TypeError( 'add()::invalid option. Accessor must be a function. Option: `' + clbk + '`.' );
+			}
+			arity = clbk.length;
+		}
+	}
+	len = arr.length;
+	if ( copy ) {
+		out = new Array( len );
+	} else {
+		out = arr;
+	}
+	// Case 1: x is an array
+	if ( isArr ) {
+		if ( len !== x.length ) {
+			throw new Error( 'add()::invalid input argument. Array to be added must have a length equal to that of the input array.' );
+		}
+		if ( arity === 3 ) { // clbk implied
+			for ( i = 0; i < len; i++ ) {
+				out[ i ] = clbk( arr[i], i, 0 ) + clbk( x[i], i, 1 );
+			}
+		}
+		else if ( clbk ) {
+			for ( i = 0; i < len; i++ ) {
+				out[ i ] = clbk( arr[i], i ) + x[ i ];
+			}
+		}
+		else {
+			for ( i = 0; i < len; i++ ) {
+				out[ i ] = arr[ i ] + x[ i ];
+			}
+		}
+	}
+	// Case 2: accessor and scalar
+	else if ( clbk ) {
+		for ( i = 0; i < len; i++ ) {
+			out[ i ] = clbk( arr[i], i ) + x;
+		}
+	}
+	// Case 3: scalar
+	else {
+		for ( i = 0; i < len; i++ ) {
+			out[ i ] = arr[ i ] + x;
+		}
+	}
+	return out;
+} // end FUNCTION add()
+
+
+// EXPORTS //
+
+module.exports = add;
+
+},{"validate.io-array":2,"validate.io-boolean-primitive":3,"validate.io-function":4,"validate.io-number-primitive":5,"validate.io-object":6}],2:[function(require,module,exports){
+'use strict';
+
+/**
+* FUNCTION: isArray( value )
+*	Validates if a value is an array.
+*
+* @param {*} value - value to be validated
+* @returns {Boolean} boolean indicating whether value is an array
+*/
+function isArray( value ) {
+	return Object.prototype.toString.call( value ) === '[object Array]';
+} // end FUNCTION isArray()
+
+// EXPORTS //
+
+module.exports = Array.isArray || isArray;
+
+},{}],3:[function(require,module,exports){
+/**
+*
+*	VALIDATE: boolean-primitive
+*
+*
+*	DESCRIPTION:
+*		- Validates if a value is a boolean primitive.
+*
+*
+*	NOTES:
+*		[1]
+*
+*
+*	TODO:
+*		[1]
+*
+*
+*	LICENSE:
+*		MIT
+*
+*	Copyright (c) 2015. Athan Reines.
+*
+*
+*	AUTHOR:
+*		Athan Reines. kgryte@gmail.com. 2015.
+*
+*/
+
+'use strict';
+
+/**
+* FUNCTION: isBoolean( value )
+*	Validates if a value is a boolean primitive.
+*
+* @param {*} value - value to be validated
+* @returns {Boolean} boolean indicating if a value is a boolean primitive
+*/
+function isBoolean( value ) {
+	return value === true || value === false;
+} // end FUNCTION isBoolean()
+
+
+// EXPORTS //
+
+module.exports = isBoolean;
+
+},{}],4:[function(require,module,exports){
+/**
+*
+*	VALIDATE: function
+*
+*
+*	DESCRIPTION:
+*		- Validates if a value is a function.
+*
+*
+*	NOTES:
+*		[1]
+*
+*
+*	TODO:
+*		[1]
+*
+*
+*	LICENSE:
+*		MIT
+*
+*	Copyright (c) 2014. Athan Reines.
+*
+*
+*	AUTHOR:
+*		Athan Reines. kgryte@gmail.com. 2014.
+*
+*/
+
+'use strict';
+
+/**
+* FUNCTION: isFunction( value )
+*	Validates if a value is a function.
+*
+* @param {*} value - value to be validated
+* @returns {Boolean} boolean indicating whether value is a function
+*/
+function isFunction( value ) {
+	return ( typeof value === 'function' );
+} // end FUNCTION isFunction()
+
+
+// EXPORTS //
+
+module.exports = isFunction;
+
+},{}],5:[function(require,module,exports){
+/**
+*
+*	VALIDATE: number-primitive
+*
+*
+*	DESCRIPTION:
+*		- Validates if a value is a number primitive.
+*
+*
+*	NOTES:
+*		[1]
+*
+*
+*	TODO:
+*		[1]
+*
+*
+*	LICENSE:
+*		MIT
+*
+*	Copyright (c) 2015. Athan Reines.
+*
+*
+*	AUTHOR:
+*		Athan Reines. kgryte@gmail.com. 2015.
+*
+*/
+
+'use strict';
+
+/**
+* FUNCTION: isNumber( value )
+*	Validates if a value is a number primitive, excluding `NaN`.
+*
+* @param {*} value - value to be validated
+* @returns {Boolean} boolean indicating if a value is a number primitive
+*/
+function isNumber( value ) {
+	return (typeof value === 'number') && (value === value);
+} // end FUNCTION isNumber()
+
+
+// EXPORTS //
+
+module.exports = isNumber;
+
+},{}],6:[function(require,module,exports){
+'use strict';
+
+// MODULES //
+
+var isArray = require( 'validate.io-array' );
+
+
+// ISOBJECT //
+
+/**
+* FUNCTION: isObject( value )
+*	Validates if a value is a object; e.g., {}.
+*
+* @param {*} value - value to be validated
+* @returns {Boolean} boolean indicating whether value is a object
+*/
+function isObject( value ) {
+	return ( typeof value === 'object' && value !== null && !isArray( value ) );
+} // end FUNCTION isObject()
+
+
+// EXPORTS //
+
+module.exports = isObject;
+
+},{"validate.io-array":2}],7:[function(require,module,exports){
 // compute-add allows me to quickly add vectors
 var add = require('compute-add');
 
@@ -311,3 +602,5 @@ $(document).ready(function () {
   initialize();
 });
 
+
+},{"compute-add":1}]},{},[7]);

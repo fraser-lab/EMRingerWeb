@@ -11,15 +11,37 @@
 {% include "summary_statistics.html" %}
 <div id="buttons"></div>
 <div id="graph"></div>
-<form id="options">
-  <div class="form-group" id="aminos" class="hide">
+<form class="form-horizontal" id="options">
+  <div id="aminos" class="option-div hide">
     <label for="amino_checkboxes" class="control-label">Amino Acids </label>
-    <div class="checkbox" id ="amino_checkboxes">
-      <!-- dynamically loaded -->
+    <div class="checkbox" id ="amino_checkboxes" align="center">
+      <!-- dynamically loaded amino acid checkboxes -->
     </div>
   </div>
-  <div id="cutoffs" class="hide"></div>
-  <div id="residues" class="hide"></div>
+  <div id="cutoffs" class="option-div hide">
+    <label for="threshold_slider" class"control-label">Thresholds</label>
+    <div class="slider" id="threshold_slider" align="center">
+      <!-- dynamically loaded threshold slider-->
+    </div>
+    <div class="slider-text" id="slider-text" align="center"></div>
+  </div>
+  <div id="residues" class="form-group option-div hide">
+    <label for="residue_dropdowns" class="control-label">Residue</label>
+    <div class="form-group dropdowns" id="residue_dropdowns">
+      <label for="chain-selector" class="col-sm-1 control-label">Chain: </label>
+      <div class="col-sm-5">
+        <select class="form-control" id="chain-selector">
+          <!-- dynamically loaded residue dropdown chooser-->
+        </select>
+      </div>
+      <label for="residue-selector" class="col-sm-1 control-label">Residue: </label>
+      <div class="col-sm-5">
+        <select class="form-control" id="residue-selector">
+          <!-- dynamically loaded residue dropdown chooser-->
+        </select>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock page_content %}
@@ -29,6 +51,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <!-- Script for visualizations after loading. -->
-<script src="{{url_for('static', filename='js/visualizations.js')}}"></script>
+<script src="{{url_for('static', filename='js/visualizations-bundle.js')}}"></script>
 
 {% endblock scripts %}
