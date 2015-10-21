@@ -202,13 +202,21 @@ function calculate_plots_data(state) {
   console.log(state.current_chain);
   resid = state.current_resid;
   console.log(state.current_resid)
-  values = state.data.Residues[chain][resid]["Map Values"];
+  residue = state.data.Residues[chain][resid]
+  values = residue["Map Values"];
   var data = new Array(73);
   for (i = 0; i<values.length; i++) {
     data[i] = [i*5, values[i]];
   };
   data[72] = [360, data[0][1]];
-  return data
+  amino = residue["Residue Name"];
+
+  return {
+    chain: chain,
+    amino: amino,
+    resid: resid,
+    data: data
+  };
 }
 
 // Switch to displaying plots
@@ -218,8 +226,8 @@ function display_plots(state) {
   $('#cutoffs').addClass("hide");
   $('#aminos').addClass("hide");
   // Todo
-  data = calculate_plots_data(state);
-  console.log(data)
+  result = calculate_plots_data(state);
+  console.log(result.data)
   console.log('displaying plots');
   $(function () {
     $('#graph').highcharts({
@@ -227,21 +235,38 @@ function display_plots(state) {
         type: 'line'
       },
       title: {
-        text: 'EMRinger Plot'
+        text: 'EMRinger Plot for Chain ' + result.chain +', '+result.amino+' '+result.resid
       },
       xAxis: {
         title: {
-          text: 'Chi-1 Angle'
-        }
+          text: 'Chi-1 Angle (º)',
+        },
+        tickInterval: 60,
+        plotBands: [{
+          color: '#CBCFDC',
+          from: 30,
+          to: 90
+        },
+        {
+          color: '#CBCFDC',
+          from: 150,
+          to: 210
+        },
+        {
+          color: '#CBCFDC',
+          from: 270,
+          to: 330
+        },
+        ]
       },
       yAxis: {
         title: {
-            text: 'Rho'
+            text: 'Map Value'
         }
       },
       series: [{
-        name: 'EMRinger trace',
-        data: data
+        name: "EMRinger trace",
+        data: result.data
       }],
       tooltip: {
         formatter: function() {
@@ -256,9 +281,13 @@ function update_graph(state) {
   console.log(state.plotted);
   
   if (state.plotted == "individual") {
-    data = calculate_plots_data(state);
+    result = calculate_plots_data(state);
     var chart = $("#graph").highcharts();
-    chart.series[0].setData(data)
+    chart.series[0].setData(result.data);
+    chart.setTitle({
+      text: 'EMRinger Plot for Chain ' + result.chain +', '+result.amino+' '+result.resid
+
+    });
 
   }
 }
