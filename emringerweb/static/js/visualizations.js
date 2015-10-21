@@ -6,7 +6,7 @@ var add = require('compute-add');
 var config = {
   active_residues: ["ARG", "ASN", "ASP", "CYS", "GLU", "GLN", "HIS", "LEU",
                     "LYS", "MET", "PHE", "SER", "TRP", "TYR", "SEC", "PYL"],
-  plotted: "histogram",
+  plotted: "score",
 };
 
 // Build the options invisibly, including sane defaults:
@@ -112,8 +112,8 @@ function display_visualization_skeleton(state) {
   $('#buttons').html([
     '<h2>Visualizations</h2>',
     '<div role="group" class="btn-group btn-group-justified">',
-    '  <a id="score-btn" type="button" class="btn btn-primary graph-picker">EMRinger Score</a>',
-    '  <a id="histogram-btn" type="button" class="btn btn-primary active graph-picker">Histograms</a>',
+    '  <a id="score-btn" type="button" class="btn btn-primary graph-picker active">EMRinger Score</a>',
+    '  <a id="histogram-btn" type="button" class="btn btn-primary graph-picker">Histograms</a>',
     '  <a id="individual-btn" type="button" class="btn btn-primary graph-picker">Individual Plots</a>',
     '</div>',
   ].join('\n'));
@@ -192,12 +192,12 @@ function display_scores(state) {
       },
       xAxis: {
         title: {
-          text: 'Chi-1 Angle'
+          text: 'Map Value Threshold'
         }
       },
       yAxis: [{
         title: {
-          text: 'EMRinger score'
+          text: 'EMRinger Score'
         }
       },{
         title: {
@@ -215,6 +215,7 @@ function display_scores(state) {
         {
           name: "Fraction Rotameric",
           type: "line",
+          color: "red",
           data: data["Fraction Rotameric"],
           yAxis: 1
       }],
@@ -270,7 +271,7 @@ function display_histograms(state) {
       },
       xAxis: {
         title: {
-          text: 'Chi-1 Angle'
+          text: 'χ1 Angle (º)'
         },
         min: 0,
         max: 360,
@@ -296,12 +297,12 @@ function display_histograms(state) {
         min: 0
       },
       series: [{
-        name: "EMRinger peak chi angle counts",
+        name: "EMRinger peak χ1 angle counts",
         data: data
       }],
       tooltip: {
         formatter: function() {
-          return 'Angle: <b>' + this.x +'°</b>, Peak Counts: <b>'+ this.y +'</b>'
+          return 'χ1 Angle: <b>' + this.x +'°</b>, Peak Counts: <b>'+ this.y +'</b>'
         }
       }
     });
@@ -490,7 +491,7 @@ function initialize() {
     $.extend(state,calculate_state_variables(state));
     console.log(state);
     display_visualization_skeleton(state);
-    display_histograms(state);
+    display_scores(state);
   });
 }
 
