@@ -297,7 +297,7 @@ var add = require('compute-add');
 var config = {
   active_residues: ["ARG", "ASN", "ASP", "CYS", "GLU", "GLN", "HIS", "LEU",
                     "LYS", "MET", "PHE", "SER", "TRP", "TYR", "SEC", "PYL"],
-  active_plot: "histograms",
+  plotted: "histogram",
 };
 
 // Build the options invisibly, including sane defaults:
@@ -345,15 +345,15 @@ function init_cutoffs(state) {
   // Build a cutoff slider with a range of values, with the edge values displayed and the current value displayed.
   max = state.thresholds.length - 1;
   start = state.current_threshold;
-  values = state.thresholds.map(function (x){
+  sliced_values = state.thresholds.map(function (x){
     return x.slice(0,6);
   });
   // Removed strong tags, left the space there so I can put it back...
-  html_string = ""+values[0]+" <input id='cutoff_slider' type='range' min='0' max='"+max+"' value='0'/> "+values[max]+"";
+  html_string = ""+sliced_values[0]+" <input id='cutoff_slider' type='range' min='0' max='"+max+"' value='0'/> "+sliced_values[max]+"";
   $("#cutoffs .slider").html(html_string);
-  $('#slider-text').html(""+values[0]+"");
+  $('#slider-text').html(""+sliced_values[0]+"");
   $("#cutoff_slider").change( function() {
-    text = ""+values[$(this).val()]+"";
+    text = ""+sliced_values[$(this).val()]+"";
     $('#slider-text').html(text);
     state.current_threshold = state.thresholds[$(this).val()];
     console.log(state.current_threshold);
@@ -431,6 +431,42 @@ function display_visualization_skeleton(state) {
   init_options(state);
 }
 
+function calculate_score_data(state) {
+  aminos = Object.keys(_.pick(state.all_aminos, function (n) {
+    return n.selected;
+  }, this.key));
+  lengths = state.data["Model Length"];
+  length_array = aminos.map(function(x){
+    return lengths[x];
+  });
+  total_length = _.sum(length_array);
+  series = {
+    "EMRinger Score": [],
+    "Fraction Rotameric": []
+  }
+  _.forEach(state.thresholds, function(x){
+    // Do this for each threshold in turn
+    score_raw_data = state.data.Thresholds[x];
+    // Sum up the number rotameric and the total for the active aminos
+    number_rotameric = 0;
+    number_total = 0;
+    _.forEach(aminos, function(y) {
+      number_rotameric += score_raw_data[y]["Rotamer Count"];
+      number_total += score_raw_data[y]["Number Scanned"];
+    });
+    // Calculate the statistics for that threshold
+    fraction_rotameric = number_rotameric/(number_total+0.000000000000000000001);
+    stdev = Math.sqrt(39.0/72*33.0/72*number_total);
+    mean = number_total*39.0/72;
+    zscore=(number_rotameric-mean)/(stdev+0.000000000000000000001);
+    emringer_score = 10 * zscore / Math.sqrt(total_length+0.0000000000000000001);
+
+    series["EMRinger Score"].push([parseFloat(x), emringer_score])
+    series["Fraction Rotameric"].push([parseFloat(x), fraction_rotameric])
+  });
+  console.log(series)
+  return series;
+}
 
 // Switch to and display the summary scores chart.
 function display_scores(state) {
@@ -438,53 +474,128 @@ function display_scores(state) {
   $('.option-div').removeClass("hide");
   $('#cutoffs').addClass("hide");
   $('#residues').addClass("hide");
-
+  data = calculate_score_data(state)
   console.log('displaying EMRinger score plot');
-  $('#graph').highcharts({
-    chart: {
-      type: 'line'
-    },
-    title: {
-      text: 'EMRinger Score'
-    },
-    xAxis: {
+  $(function () {
+    $('#graph').highcharts({
       title: {
-        text: 'Chi-1 Angle'
+        text: 'EMRinger Score'
+      },
+      xAxis: {
+        title: {
+          text: 'Chi-1 Angle'
+        }
+      },
+      yAxis: [{
+        title: {
+          text: 'EMRinger score'
+        }
+      },{
+        title: {
+          text: 'Fraction Rotameric'
+        },
+        min: 0,
+        max: 1,
+        opposite: true
+      }],
+      series: [{
+          name: "EMRinger Score",
+          type: "line",
+          data: data["EMRinger Score"]
+        },
+        {
+          name: "Fraction Rotameric",
+          type: "line",
+          data: data["Fraction Rotameric"],
+          yAxis: 1
+      }],
+      tooltip: {
+        shared: true
       }
-    },
-    yAxis: {
-      title: {
-        text: 'Number of peaks'
-      }
-    },
+    });
   });
 }
 
+function calculate_histogram_data(state) {
+  threshold = state.current_threshold;
+  aminos = Object.keys(_.pick(state.all_aminos, function (n) {
+    return n.selected;
+  }, this.key));
+  var values = Array.apply(null, Array(72)).map(Number.prototype.valueOf,0);
+  hist_set = state.data.Thresholds[threshold];
+  _.forEach(aminos, function(n) {
+    values = add(values, hist_set[n]["Peak Histogram"])
+  }) ;
+  console.log(values);
+  var data = new Array(73);
+  for (i = 0; i<values.length; i++) {
+    data[i] = [i*5, values[i]];
+  };
+  data[72] = [360, data[0][1]];
+  return data
+}
 
 // Switch to displaying histograms.
 function display_histograms(state) {
   // Hide only residues, show aminos and cutoffs
+  data = calculate_histogram_data(state)
   $('.option-div').removeClass("hide");
   $('#residues').addClass("hide");
   // Todo
   console.log('displaying histograms');
-  $('#graph').highcharts({
-    chart: {
-      type: 'bar'
-    },
-    title: {
-      text: 'Histogram of Peaks'
-    },
-    xAxis: {
+  $(function () {
+    $('#graph').highcharts({
+      chart: {
+        type: 'column'
+      },
+      plotOptions: {
+        column: {
+          pointPadding: 0,
+          borderWidth: 0,
+          groupPadding: 0,
+          shadow: false
+        }
+      },
       title: {
-        text: 'Chi-1 Angle'
+        text: 'Histogram of Peaks at Threshold ' + state.current_threshold.slice(0,6)
+      },
+      xAxis: {
+        title: {
+          text: 'Chi-1 Angle'
+        },
+        min: 0,
+        max: 360,
+        tickInterval: 60,
+        plotBands: [{
+          color: '#CBCFDC',
+          from: 30,
+          to: 90
+        },{
+          color: '#CBCFDC',
+          from: 150,
+          to: 210
+        },{
+          color: '#CBCFDC',
+          from: 270,
+          to: 330
+        }]
+      },
+      yAxis: {
+        title: {
+          text: 'Number of peaks'
+        },
+        min: 0
+      },
+      series: [{
+        name: "EMRinger peak chi angle counts",
+        data: data
+      }],
+      tooltip: {
+        formatter: function() {
+          return 'Angle: <b>' + this.x +'°</b>, Peak Counts: <b>'+ this.y +'</b>'
+        }
       }
-    },
-    yAxis: {
-      title: {
-        text: 'Number of peaks'
-      }
-    },
+    });
   });
 }
 
@@ -570,16 +681,28 @@ function display_plots(state) {
 
 function update_graph(state) {
   console.log(state.plotted);
-  
+  var chart = $("#graph").highcharts();
   if (state.plotted == "individual") {
     result = calculate_plots_data(state);
-    var chart = $("#graph").highcharts();
     chart.series[0].setData(result.data);
     chart.setTitle({
       text: 'EMRinger Plot for Chain ' + result.chain +', '+result.amino+' '+result.resid
-
     });
-
+  }
+  else if (state.plotted=="histogram") {
+    data = calculate_histogram_data(state);
+    chart.series[0].setData(data);
+    chart.setTitle({
+      text: 'Histogram of Peaks at Threshold ' + state.current_threshold.slice(0,6)
+    })
+  }
+  else if (state.plotted=="score"){
+    data = calculate_score_data(state);
+    chart.series[0].setData(data["EMRinger Score"]);
+    chart.series[1].setData(data["Fraction Rotameric"]);
+  }
+  else {
+    console.log(state.plotted);
   }
 }
 
@@ -649,6 +772,7 @@ function calculate_state_variables(state) {
 // Initiate the state, then draw the options and the first plot.
 function initialize() {
   var state = {};
+  state.plotted=config.plotted;
   // state.active_plot = config.active_plot;
   state.id = $('#job-info').data("id");
   var result = fetch_scores(state);
@@ -665,6 +789,5 @@ function initialize() {
 $(document).ready(function () {
   initialize();
 });
-
 
 },{"compute-add":1}]},{},[7]);
