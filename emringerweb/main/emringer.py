@@ -257,7 +257,7 @@ class iterate_over_residues (object) :
           #residue_id_str=residue.id_str(),
           resname=residue.resname,
           chain_id=residue_group.parent().id,
-          resid=residue.resid(),
+          resid=residue.resid().strip(" "),
           altloc=conformer.altloc,
           n_chi=n_chi)
         if (verbose) :
