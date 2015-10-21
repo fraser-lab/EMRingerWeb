@@ -9,7 +9,9 @@
 
 {% block page_content %}
 {% include "summary_statistics.html" %}
-<div id="buttons"></div>
+<div id="buttons">
+  <div class="alert alert-info"><b>Fetching data for visualizations...</b> This may take a little while for large models.</div>
+</div>
 <div id="graph"></div>
 <form class="form-horizontal" id="options">
   <div id="aminos" class="option-div hide">
