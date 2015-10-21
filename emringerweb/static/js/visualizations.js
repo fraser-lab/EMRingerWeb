@@ -169,6 +169,7 @@ function display_scores(state) {
   });
 }
 
+
 // Switch to displaying histograms.
 function display_histograms(state) {
   // Hide only residues, show aminos and cutoffs
@@ -196,6 +197,20 @@ function display_histograms(state) {
   });
 }
 
+function calculate_plots_data(state) {
+  chain = state.current_chain;
+  console.log(state.current_chain);
+  resid = state.current_resid;
+  console.log(state.current_resid)
+  values = state.data.Residues[chain][resid]["Map Values"];
+  var data = new Array(73);
+  for (i = 0; i<values.length; i++) {
+    data[i] = [i*5, values[i]];
+  };
+  data[72] = [360, data[0][1]];
+  return data
+}
+
 // Switch to displaying plots
 function display_plots(state) {
   // Hide only cutoffs and aminos, show residues
@@ -203,29 +218,49 @@ function display_plots(state) {
   $('#cutoffs').addClass("hide");
   $('#aminos').addClass("hide");
   // Todo
+  data = calculate_plots_data(state);
+  console.log(data)
   console.log('displaying plots');
-  $('#graph').highcharts({
-    chart: {
-      type: 'line'
-    },
-    title: {
-      text: 'EMRinger Plot'
-    },
-    xAxis: {
+  $(function () {
+    $('#graph').highcharts({
+      chart: {
+        type: 'line'
+      },
       title: {
-        text: 'Chi-1 Angle'
+        text: 'EMRinger Plot'
+      },
+      xAxis: {
+        title: {
+          text: 'Chi-1 Angle'
+        }
+      },
+      yAxis: {
+        title: {
+            text: 'Rho'
+        }
+      },
+      series: [{
+        name: 'EMRinger trace',
+        data: data
+      }],
+      tooltip: {
+        formatter: function() {
+          return 'Angle: ' + this.x +'°, Map Value: '+ this.y
+        }
       }
-    },
-    yAxis: {
-      title: {
-          text: 'Rho'
-      }
-    },
+    });
   });
 }
 
 function update_graph(state) {
   console.log(state.plotted);
+  
+  if (state.plotted == "individual") {
+    data = calculate_plots_data(state);
+    var chart = $("#graph").highcharts();
+    chart.series[0].setData(data)
+
+  }
 }
 
 // Send an ajax request to fetch scores; return a promise
