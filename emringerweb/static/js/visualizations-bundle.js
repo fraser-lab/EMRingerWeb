@@ -644,6 +644,8 @@ function display_plots(state) {
         title: {
           text: 'Chi-1 Angle (º)',
         },
+        min: 0,
+        max: 360,
         tickInterval: 60,
         plotBands: [{
           color: '#CBCFDC',

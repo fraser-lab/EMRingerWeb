@@ -4,18 +4,18 @@
 <table class="table table-striped">
 <tbody>
 <tr>
-  <td> EMRinger Score:</td>
-  <td> {{ statistics["EMRinger Score"]}}</td>
+  <td><b>EMRinger Score:</b></td>
+  <td>{{ "%.5f" | format(statistics["EMRinger Score"])}}</td>
 </tr>
 <tr>
-  <td> Total Residues Scanned: </td>
-  <td> {{ statistics["Total Residues Scanned"]}}</td>
+  <td><b>Total Residues Scanned: </b></td>
+  <td>{{ statistics["Total Residues Scanned"]}}</td>
 </tr>
 <tr>
-  <td>Optimal Threshold: </td> <td>{{ statistics["Optimal Threshold"]}}</td>
+  <td><b>Optimal Threshold: </b></td> <td>{{ "%.5f" | format(statistics["Optimal Threshold"])}}</td>
   </tr>
   <tr>
-  <td>Rotamer Ratio at Optimal Threshold:</td><td> {{ statistics["Rotamer Ratio at Optimal Threshold"]}}</td>
+  <td><b>Rotamer Ratio at Optimal Threshold:</b></td><td> {{ "%.5f" | format(statistics["Rotamer Ratio at Optimal Threshold"])}}</td>
 </tr>
 </tbody>
 </table>
