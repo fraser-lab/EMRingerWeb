@@ -166,7 +166,7 @@ def emringer_scan(args):
                 residues[i.chain_id] = {}
             residues[i.chain_id][i.resid] = {
                 "Residue Name": i.resname,
-                "Residue Number": int(i.resid),
+                "Residue Number": i.resid,
                 "Chain ID": i.chain_id,
                 "Peak Angle": i._angles[chi].peakchi,
                 "Peak Map Value": i._angles[chi].peakrho,
