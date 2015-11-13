@@ -24,7 +24,7 @@ Jobs which fail do not automatically delete the files, so that we can assist wit
 If you have sufficient privacy concerns, you can rehost this website on a private intranet, where you have total control over everything!
 
 ## API
-This server will be accessible via API if you prefer not to use the graphical website. The API is implemented (mostly) but not yet documented; this documentation is coming soon!
+An API for accessing this server is in development, pending replacement of the file upload backend. In the mean time, once you have uploaded files to the server, you can do everything else you might need programmatically (start jobs, check status of jobs, fetch job results, and delete files). You cannot and will never be able to view files once they have been uploaded to the server - only the results of runs. Documentation of the API will be completed once the file upload backend is replaced.
 
 ## Contributing
 The web server is a flask app which is open source on github at [http://github.com/fraser-lab/emringer_web](http://github.com/fraser-lab/emringer_web) and the cctbx scripts for emringer are also available on github at [http://github.com/fraser-lab/emringer](http://github.com/fraser-lab/emringer). For bugs, please check out the issues on those respective pages.
@@ -38,4 +38,11 @@ Email [us](mailto:emringer@fraserlab.com), or post an issue on the [Github page 
 
 ## Acknowledgements
 Nathaniel Echols is the original author of the Ringer scan implementation in cctbx, and Kevin Hartman has been instrumental in the early development of the EMRinger webserver. Nick Merrill has been of great help in developing this web server.
+
+This tool functions thanks to several open source projects:
+* [Flask](https://github.com/mitsuhiko/flask)
+* [FineUploader](https://github.com/FineUploader/fine-uploader)
+* [cctbx](http://cctbx.sourceforge.net/current/)
+* [Highcharts](https://github.com/highslide-software/highcharts-release)
+* [EMRinger](https://github.com/fraser-lab/EMRinger)
 
