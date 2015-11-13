@@ -1,12 +1,13 @@
 /* TEAM */
 
 	Developer: Benjamin A Barad
+	Github: bbarad
 	Contact: benjamin.barad+emringer@gmail.com
 	Twitter: @benjaminbarad
 	Location: San Francisco, CA
 
 	Developer/Javascript Guru: Nicholas Merrill
-	Contact:
+	Github: csmpls
 	Location: Berkeley, CA
 
 	Principal Investigator: James S Fraser
@@ -22,7 +23,6 @@
 
 /* SITE */
 	
-	Last Updated: 04/05/2015
+	Last Updated: 11/13/2015
 	Standards: HTML5
-	Components: Flask, Computational Crystallography Toolbox (cctbx), Bootstrap, FineUploader 
-	IDE: Sublime Text
+	Components: Flask, Computational Crystallography Toolbox (cctbx), Bootstrap, FineUploader, Highcharts, EMRinger
