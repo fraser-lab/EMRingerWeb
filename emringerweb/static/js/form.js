@@ -12,7 +12,7 @@ function initialize() {
 
   // initialize the uploaders
   var $modelUploader = initializeUploader('#modelUploader', ['pdb','ent'], 20000000, 'qq-template-model')
-  var $mapUploader = initializeUploader('#mapUploader', ['map','mrc','ccp4'], 100000000, 'qq-template-map')
+  var $mapUploader = initializeUploader('#mapUploader', ['map','mrc','ccp4'], 200000000, 'qq-template-map')
 
   $('#triggerUpload').click(function() {
     disableButton($("#triggerUpload"))
