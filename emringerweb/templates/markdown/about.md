@@ -40,9 +40,20 @@ Email [us](mailto:emringer@fraserlab.com), or post an issue on the [Github page 
 Nathaniel Echols is the original author of the Ringer scan implementation in cctbx, and Kevin Hartman has been instrumental in the early development of the EMRinger webserver. Nick Merrill has been of great help in developing this web server.
 
 This tool functions thanks to several open source projects:
-* [Flask](https://github.com/mitsuhiko/flask)
-* [FineUploader](https://github.com/FineUploader/fine-uploader)
-* [cctbx](http://cctbx.sourceforge.net/current/)
-* [Highcharts](https://github.com/highslide-software/highcharts-release)
-* [EMRinger](https://github.com/fraser-lab/EMRinger)
-
+<ul>
+    <li> 
+        [Flask](https://github.com/mitsuhiko/flask) 
+    </li> 
+    <li> 
+        [FineUploader](https://github.com/FineUploader/fine-uploader)  
+    </li> 
+    <li> 
+        [cctbx](http://cctbx.sourceforge.net/current/)  
+    </li> 
+    <li> 
+        [Highcharts](https://github.com/highslide-software/highcharts-release)  
+    </li> 
+    <li> 
+        [EMRinger](https://github.com/fraser-lab/EMRinger) 
+    </li>  
+<ul>
