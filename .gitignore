@@ -1,5 +1,6 @@
 # Ignore the following files:
 tmp/
+.vscode/
 private.py
 app.db
 bower_components/
@@ -19,6 +20,7 @@ data-dev.sqlite
 
 data/
 logs/
+
 
 
 .DS_Store
