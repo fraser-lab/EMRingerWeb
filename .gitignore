@@ -18,6 +18,8 @@ data-dev.sqlite
 !test_map.ccp4
 
 data/
+logs/
+
 
 .DS_Store
 
