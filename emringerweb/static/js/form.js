@@ -37,7 +37,7 @@ function initializeUploader(div, allowedExtensions, sizeLimit, template) {
     request: {
       endpoint: '/upload'
     },
-    chunked:true,
+    chunked:false,
     template: template,
     classes: {
       success: 'alert alert-success',
