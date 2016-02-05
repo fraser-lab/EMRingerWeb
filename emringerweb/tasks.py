@@ -23,10 +23,10 @@ def run_emringer(pdbfile, mapfile, pdbuuid=None, mapuuid=None, user_email=None):
                               "emringerweb/main/emringer_analysis.py", pdbfile, mapfile], 
                               stdout=subprocess.PIPE).communicate()
   # Print result
-  print output[0]
+  current_app.logger.info("EMRinger performed and saved to %s", output[0].strip('\n'))
   # print warnings
   if output[1]:
-    print output[1]
+    current_app.logger.warning(output[1])
   with open(output[0].strip("\n"), 'r') as file:
     data = json.loads(file.read())
 
@@ -42,16 +42,15 @@ def run_emringer(pdbfile, mapfile, pdbuuid=None, mapuuid=None, user_email=None):
 @celery.task
 def send_asynchronous_email(results, email, pdbfile, mapfile, task_id):
   if send_email(results, email, pdbfile, mapfile, task_id):
-    print "Success email sent to %s" % email
+    current_app.logger.info("Success email sent to %s for job %s", email, task_id)
   else:
-    print "Sending mail to %s failed" % email
+    current_app.logger.error("Sending mail to %s failed for job %s" % email, task_id)
 
 
 @celery.task
 def handle_delete(uuid):
     """ Handles a filesystem delete based on UUID."""
     location = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(uuid))
-    print(uuid)
-    print(location)
+    current_app.logger.info("Deletion Task Started for %s", uuid)
     shutil.rmtree(location)
     return "removed"

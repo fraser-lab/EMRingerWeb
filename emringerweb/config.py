@@ -18,10 +18,13 @@ class Config:
 	MAIL_DEFAULT_SENDER = 'EMRinger Web Server <emringer@fraserlab.com>'
 	ADMINS = ['emringer@fraserlab.com']
 	MAIL_SERVER='smtp.gmail.com'
-	MAIL_PORT=465
-	MAIL_USE_SSL=True
+	MAIL_PORT=587
+	MAIL_USE_SSL=False
+	MAIL_USE_TLS=True
 	MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
 	MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+
+	LOG_LOCATION = "logs/app.log"
 
 	@staticmethod
 	def init_app(app):

@@ -1,3 +1,7 @@
+import logging
+from logging import Formatter
+from logging.handlers import SMTPHandler, RotatingFileHandler
+
 from celery import Celery
 from flask import Flask, render_template
 from flask.ext.bootstrap import Bootstrap
@@ -24,6 +28,39 @@ def create_app(config_name):
     db.init_app(app)
 
     app.register_blueprint(main_blueprint)
+
+    # Mail me if there is an error in the app.
+    mail_handler = SMTPHandler((app.config['MAIL_SERVER'], app.config['MAIL_PORT']),
+                                app.config['MAIL_DEFAULT_SENDER'],
+                                app.config['ADMINS'], 
+                                'EMRinger Job Failed', 
+                                credentials=(app.config['MAIL_USERNAME'], 
+                                            app.config['MAIL_PASSWORD']),
+                                secure=())
+    mail_handler.setFormatter(Formatter('''
+                                Message type:       %(levelname)s
+                                Location:           %(pathname)s:%(lineno)d
+                                Module:             %(module)s
+                                Function:           %(funcName)s
+                                Time:               %(asctime)s
+
+                                Message:
+
+                                %(message)s
+                                '''))
+    mail_handler.setLevel(logging.ERROR)
+    app.logger.addHandler(mail_handler)
+
+    # Log all warnings to a file.
+    file_handler = RotatingFileHandler(app.config['LOG_LOCATION'], 
+                                        maxBytes=10*1024, backupCount=5)
+    file_handler.setLevel(logging.INFO)
+    file_handler.setFormatter(Formatter(
+    '%(asctime)s %(levelname)s: %(message)s '
+    '[in %(pathname)s:%(lineno)d]'
+    ))
+    app.logger.addHandler(file_handler)
+    app.logger.setLevel(logging.INFO)
 
     return app
 

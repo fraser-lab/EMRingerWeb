@@ -56,8 +56,8 @@ def validate(attrs):
     attribute that does not have a key for a MultiDict.
     """
     try:
-        #required_attributes = ('qquuid', 'qqfilename')
-        #[attrs.get(k) for k,v in attrs.items()]
+        required_attributes = ('qquuid', 'qqfile')
+        [attrs.get(k) for k in required_attributes]
         return True
     except Exception, e:
         return False
@@ -72,7 +72,7 @@ def handle_upload(f, attrs):
     chunked = False
     dest_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(attrs['qquuid']))
     dest = os.path.join(dest_folder, secure_filename(attrs['qqfilename']))
-    print "made destination"
+    
 
     # Chunked
     if attrs.has_key('qqtotalparts') and int(attrs['qqtotalparts']) > 1:
@@ -81,7 +81,7 @@ def handle_upload(f, attrs):
         dest = os.path.join(dest_folder, attrs['qqfilename'], secure_filename(str(attrs['qqpartindex'])))
 
     save_upload(f, dest)
-    print "saved upload"
+    current_app.logger.info("Saved file %s to %s", attrs['qqfilename'], dest)
 
     if chunked and (int(attrs['qqtotalparts']) - 1 == int(attrs['qqpartindex'])):
 
@@ -101,9 +101,8 @@ def save_upload(f, path):
     if not os.path.exists(os.path.dirname(path)):
         os.makedirs(os.path.dirname(path))
     with open(path, 'wb+') as destination:
-        print "path open"
         destination.write(f.read())
-        print "path written"
+
 
 
 def combine_chunks(total_parts, total_size, source_folder, dest):
@@ -142,26 +141,26 @@ def submit():
     return render_template('submit.html')#, form=form)
 
 
-
 @main_blueprint.route('/start_job', methods=['POST',])
 def start_job():
     job_request = request.get_json()
     
-    print "Map: %s" % job_request[u'map']
+    
     map_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(job_request[u'map']))
     map_file = os.listdir(map_folder)
     assert len(map_file) == 1
     map_filename = os.path.join(map_folder, map_file[0])
 
-    print "Model: %s" % job_request[u'model']
+    
     model_folder = os.path.join(current_app.config['UPLOAD_DIRECTORY'], secure_filename(job_request[u'model']))
     model_file = os.listdir(model_folder)
     assert len(model_file) == 1
     model_filename = os.path.join(model_folder, model_file[0])
 
+    current_app.logger.info("Running emringer on %s and %s", map_file, model_file)
     task = run_emringer.apply_async(args=[model_filename, map_filename, secure_filename(job_request[u'model']), 
                                           secure_filename(job_request[u'map']), job_request[u"user_email"] or None])
-    print task.id
+    
 
     return make_response(200, {'waiting_page': render_template('waiting_page.html', job_id=task.id, pdb_name=model_file[0], 
                                                                 map_name=map_file[0], status="SUBMITTED")})
@@ -171,37 +170,40 @@ def check_job():
     job_id = request.get_json()[u'job_id']
     task = run_emringer.AsyncResult(job_id)
     if task.state == "SUCCESS":
-        print job_id
         return make_response(200, {'status': task.state, 'redirect': url_for("main.display_result", job_id=job_id)})
     # elif task.state == "FAILED":
     #     return make_response(200, {'status': task.state, 'redirect': url_for(".job_failed",job_id=job_id)})
     else:
+        if task.state == "FAILED":
+            current_app.logger.error("Job Failed: %s", job_id)
         return make_response(200, {'status': task.state})
 
 @main_blueprint.route('/show_result/<job_id>')
 def display_result(job_id):
-    print job_id
     task = run_emringer.AsyncResult(job_id)
-    print task.status
     if task.status=="SUCCESS":
         data, pdbfile, mapfile = task.result
         statistics = data[u"Final Statistics"]
         return render_template('results.html', statistics=statistics, pdbfile=pdbfile, mapfile=mapfile, job_id=job_id)
     elif task.status == "REVOKED":
+        current_app.logger.warning("User attempted to load expired result: %s", job_id)
         return abort(410)
     else:
+        current_app.logger.warning("User attempted to load result that doesn't exist: %s", job_id)
         return abort(404)
 
 
 @main_blueprint.route('/get_result', methods=['POST',])
 def get_result():
     job_id = request.get_json()[u'job_id']
-    print job_id
+    current_app.logger.info("Request for results from job %s", job_id)
     task = run_emringer.AsyncResult(job_id)
     data,_,_ = task.result
     if task.status == "SUCCESS":
+        current_app.logger.info("Delivered data: %s", job_id)
         return make_response(200, data)
     else:
+        current_app.logger.warning("User attempted to request data that is not available: %s", job_id)
         return make_response(500, {"status": task.status})
 
 
@@ -216,8 +218,8 @@ class UploadAPI(MethodView):
         """A POST request. Validate the form and then handle the upload
         based ont the POSTed data. Does not handle extra parameters yet.
         """
-        if validate(request.form):
-            print request.files['qqfile']
+        if validate(request.form): 
+            current_app.logger.info("Uploading Files: %s", request.files['qqfile'])
             handle_upload(request.files['qqfile'], request.form)
             return make_response(200, { "success": True, "form": request.form})
         else:
@@ -229,8 +231,10 @@ class UploadAPI(MethodView):
         """
         try:
             handle_delete(uuid)
+            current_app.logger.warning("User deleted data: %s", uuid)
             return make_response(200, { "success": True })
         except Exception, e:
+            current_app.logger.warning("Deletion failed: %s", uuid)
             return make_response(400, { "success": False, "error": e.message })
 
 upload_view = UploadAPI.as_view('upload_view')
