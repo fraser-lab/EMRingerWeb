@@ -109,18 +109,23 @@ function init_residues(state) {
 function display_visualization_skeleton(state) {
   console.log("putting in visualization buttons");
   // Option buttons
+  var json = JSON.stringify(state.data);
+  var blob = new Blob([json], {type: "text/json"});
+  var blob_url  = URL.createObjectURL(blob);
   $('#buttons').html([
     '<h2>Visualizations</h2>',
     '<div role="group" class="btn-group btn-group-justified">',
     '  <a id="score-btn" type="button" class="btn btn-primary graph-picker active">EMRinger Score</a>',
     '  <a id="histogram-btn" type="button" class="btn btn-primary graph-picker">Histograms</a>',
     '  <a id="individual-btn" type="button" class="btn btn-primary graph-picker">Individual Plots</a>',
+    
+    '<a type="button" class="btn btn-success" href="' + blob_url + '" download="data.json">download JSON</a>',
     '</div>',
   ].join('\n'));
   // Let the graph start taking up the space it needs. I may move this into the graph display logic later.
   $('#graph').addClass('highchart');
   // Set up listeners for buttons
-  $('#buttons').on('click', '.btn', function () {
+  $('#buttons').on('click', '.graph-picker', function () {
     console.log("adding active");
     $('.btn').removeClass('active');
     $(this).addClass('active');
