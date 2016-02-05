@@ -1,6 +1,5 @@
 
 from emringerweb.config import config
-from emringerweb.db import db
 from emringerweb.main import main_blueprint
 
 

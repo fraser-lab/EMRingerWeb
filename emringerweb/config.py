@@ -33,23 +33,18 @@ class Config:
 class DevelopmentConfig(Config):
 	DEBUG = True
 	SERVER_NAME = "emringer.ngrok.com"
-	MONGOALCHEMY_DATABASE = os.environ.get('DEV_DATABASE_URL') or \
-		'emringer_database_dev'
 	MAX_CONTENT_LENGTH = 2000 * 1024 * 1024 
 
 
 class TestingConfig(Config):
  	TESTING = True
  	UPLOAD_FOLDER = os.path.join(basedir,'data_test/')
- 	SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
- 		'emringer_database_test'
 	MAX_CONTENT_LENGTH = 200 * 1024 * 1024
 
 
 class ProductionConfig(Config):
+	SERVER_NAME = "emringer.com"
 	UPLOAD_FOLDER = os.environ.get('EMRINGER_UPLOAD_FOLDER') or os.path.join(basedir,'data/')
- 	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
- 		'emringer_database'
  	MAX_CONTENT_LENGTH = 200 * 1024 * 1024
 
 
