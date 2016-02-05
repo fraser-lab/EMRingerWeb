@@ -9,7 +9,6 @@ from flask.ext.mail import Mail
 from flask.ext.moment import Moment
 
 from emringerweb.config import config
-from emringerweb.db import db
 from emringerweb.main import main_blueprint
 
 bootstrap = Bootstrap()
@@ -25,7 +24,6 @@ def create_app(config_name):
     bootstrap.init_app(app)
     mail.init_app(app)
     moment.init_app(app)
-    db.init_app(app)
 
     app.register_blueprint(main_blueprint)
 
