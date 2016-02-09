@@ -7,7 +7,6 @@ from flask import render_template, session, redirect, request, url_for, current_
 from flask.views import MethodView
 from werkzeug import secure_filename
 
-from emringerweb import db
 from emringerweb.main import main_blueprint
 # from emringerweb.models import Job, Residue, Angle
 from emringerweb.tasks import run_emringer, handle_delete

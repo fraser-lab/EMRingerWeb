@@ -6,6 +6,7 @@ from celery import Celery
 from flask import Flask, render_template
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.mail import Mail
+from flask.ext.markdown import Markdown
 from flask.ext.moment import Moment
 
 from emringerweb.config import config
@@ -24,7 +25,7 @@ def create_app(config_name):
     bootstrap.init_app(app)
     mail.init_app(app)
     moment.init_app(app)
-
+    markdown = Markdown(app)
     app.register_blueprint(main_blueprint)
 
     # Mail me if there is an error in the app.
