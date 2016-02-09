@@ -2,12 +2,12 @@ import os
 from emringerweb.app import create_app
 # from emringerweb.models import Job, Residue, Angle
 from flask.ext.script import Manager, Shell
-from flask.ext.markdown import Markdown
+
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 manager = Manager(app)
 
-markdown = Markdown(app)
+
 
 
 # from  flask_debugtoolbar import DebugToolbarExtension
