@@ -43,7 +43,7 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
-	SERVER_NAME = "emringer.com"
+	SERVER_NAME = "emringer.ngrok.com"
 	UPLOAD_FOLDER = os.environ.get('EMRINGER_UPLOAD_FOLDER') or os.path.join(basedir,'data/')
  	MAX_CONTENT_LENGTH = 200 * 1024 * 1024
 
