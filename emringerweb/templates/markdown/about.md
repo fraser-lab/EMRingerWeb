@@ -1,7 +1,7 @@
 # About EMRinger
 ------------
 
-#### EMRinger is under active development in the [Fraser Lab](http://fraserlab.com). Right now, the EMRinger software and web server are being developed and maintained by [Ben Barad](http://fraserlab.com/members#Ben Barad). 
+_EMRinger is under active development in the [Fraser Lab](http://fraserlab.com). Right now, the EMRinger software and web server are being developed and maintained by [Ben Barad](http://fraserlab.com/members#Ben Barad)._ 
 
 ## Citing EMRinger
 The EMRinger web server has not been published formally. Please cite the paper detailing the EMRinger method:
