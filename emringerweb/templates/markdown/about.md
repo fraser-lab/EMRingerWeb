@@ -10,8 +10,8 @@ The EMRinger web server has not been published formally. Please cite the paper d
 > EMRinger: side-chain-directed model and map validation for 3D electron cryomicroscopy. *Nature Methods* **12** 943-946 
 > (2015); doi:[10.1038/nmeth.3541](http://dx.doi.org/10.1038/nmeth.3541).
 
-## What is EMRinger?
-Coming soon - in the mean time, read the paper (a preprint is available on [biorxiv](http://biorxiv.org/content/early/2015/02/03/014738)), or the [blog post about it](http://fraserlab.com/2015/02/18/EMRinger/).
+<!-- ## What is EMRinger?
+TODO. In the mean time, read the paper (a preprint is available on [biorxiv](http://biorxiv.org/content/early/2015/02/03/014738)), or the [blog post about it](http://fraserlab.com/2015/02/18/EMRinger/). -->
 
 ## Who Develops EMRinger?
 EMRinger is under active development in the [Fraser lab at UCSF](http://fraserlab.com), with significant support from the [Phenix group at UC Berkeley](http://phenix-online.org). Ringer was developed by the Alber lab at UC Berkeley. 
@@ -19,12 +19,10 @@ EMRinger is under active development in the [Fraser lab at UCSF](http://fraserla
 ## Privacy
 In order to run a job on this site, you must upload your map and model. We are very cognizant of the privacy concerns of users with models and maps that have yet to be published. There is no API method (internal or external) to download files once uploaded, even before their deletion. Physical access to the server is required to view uploaded files, and we will not view files without permission from the uploaders for the sake of troubleshooting. Once uploaded, a modified version of the EMRinger scripts are automatically run using these files, and in the absence of errors the files are then immediately deleted. The results of the jobs can be queried if the UUID of the job is known, but the only information that can be externally queried regarding these results are the filenames and the results of the EMRinger scan. Results are kept for one week, at which point they expire and are automatically deleted daily. This is meant to discourage broad searches by UUID to find others results. We plan to implement an API to delete results sooner if the user wishes, but this has not yet been implemented. 
 
-Jobs which fail do not automatically delete the files, so that we can assist with troubleshooting. If you get a failure page, feel free to [email us](mailto:emringer@fraserlab.com) for assistance. We delete all uploaded files at the end of each week via cron job. There is also a publicly exposed API delete those files yourself by sending a DELETE request to http://emringer.com/upload/UUID, where UUID is the uuid of your files.
+Jobs which fail do not automatically delete the files, so that we can assist with troubleshooting. If you get a failure page, feel free to [email us](mailto:emringer@fraserlab.com) for assistance. We delete all uploaded files at the end of each week via cron job. There is also a publicly exposed API to delete those files yourself by sending a DELETE request to http://emringer.com/upload/UUID, where UUID is the uuid of your files.
 
 If you have sufficient privacy concerns, you can rehost this website on a private intranet, where you have total control over everything!
 
-## API
-An API for accessing this server is in development, pending replacement of the file upload backend. In the mean time, once you have uploaded files to the server, you can do everything else you might need programmatically (start jobs, check status of jobs, fetch job results, and delete files). You cannot and will never be able to view files once they have been uploaded to the server - only the results of runs. Documentation of the API will be completed once the file upload backend is replaced.
 
 ## Contributing
 The web server is a flask app which is open source on github at [http://github.com/fraser-lab/emringer_web](http://github.com/fraser-lab/emringer_web) and the cctbx scripts for emringer are also available on github at [http://github.com/fraser-lab/emringer](http://github.com/fraser-lab/emringer). For bugs, please check out the issues on those respective pages.

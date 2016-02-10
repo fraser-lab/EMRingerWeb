@@ -1,4 +1,7 @@
 EMRinger Web
 ===========
 
-A flask app in development by Ben Barad to bring EMRinger to the world!
+Bringing [EMRinger](https://github.com/fraser-lab/emringer) online via a flask app.
+
+Available online at [EMRinger.com](http://emringer.com).
+
