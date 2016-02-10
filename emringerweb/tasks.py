@@ -19,7 +19,7 @@ celery = make_celery_app(current_app)
 
 @celery.task
 def run_emringer(pdbfile, mapfile, pdbuuid=None, mapuuid=None, user_email=None):
-  output = subprocess.Popen(["/usr/local/phenix-1.10pre-2124/build/bin/phenix.python", 
+  output = subprocess.Popen([os.getenv("CCTBX_PYTHON"), 
                               "emringerweb/main/emringer_analysis.py", pdbfile, mapfile], 
                               stdout=subprocess.PIPE).communicate()
   # Print result
