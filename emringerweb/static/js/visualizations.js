@@ -85,7 +85,7 @@ function init_residues(state) {
 
     // Update the residue selector
     residue_html = state.resid_set.map(function(x){
-      return "<option>"+x+"</option>"
+      return "<option value='"x"'>"+x+" "+x["Residue Name"]+"</option>"
     }).join('\n');
     $('#residue-selector').html(residue_html);
 
@@ -93,7 +93,7 @@ function init_residues(state) {
     update_graph(state)
   })
   residue_html = state.resid_set.map(function(x){
-    return "<option>"+x+"</option>"
+    return "<option value='"x"'>"+x+" "+x["Residue Name"]+"</option>"
   }).join('\n');
   $('#residue-selector').html(residue_html);
   $('#residue-selector').change(function() {

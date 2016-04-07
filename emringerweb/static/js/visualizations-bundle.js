@@ -376,7 +376,7 @@ function init_residues(state) {
 
     // Update the residue selector
     residue_html = state.resid_set.map(function(x){
-      return "<option>"+x+"</option>"
+      return "<option value='"+x+"'>"+state.data.Residues[state.current_chain][x]["Residue Name"]+" "+x+"</option>"
     }).join('\n');
     $('#residue-selector').html(residue_html);
 
@@ -384,7 +384,7 @@ function init_residues(state) {
     update_graph(state)
   })
   residue_html = state.resid_set.map(function(x){
-    return "<option>"+x+"</option>"
+    return "<option value='"+x+"'>"+state.data.Residues[state.current_chain][x]["Residue Name"]+" "+x+"</option>"
   }).join('\n');
   $('#residue-selector').html(residue_html);
   $('#residue-selector').change(function() {
