@@ -18,7 +18,7 @@ kombu==3.0.33
 Markdown==2.6.5
 MarkupSafe==0.23
 pytz==2015.7
-redis==2.10.5
+redis==4.4.4
 uWSGI==2.0.12
 visitor==0.1.2
 Werkzeug==2.2.3
